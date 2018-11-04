@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team: false
+  technic: MyString
+  profile: one
+
+two:
+  team: false
+  technic: MyString
+  profile: two

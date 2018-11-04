@@ -1,0 +1,2 @@
+module IndustryprofilesHelper
+end
