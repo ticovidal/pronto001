@@ -1,55 +1,66 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Profiles</h1>
-
-<table>
+<%- model_class = Profile -%>
+<div class="page-header">
+  <h1><%=t '.title', default: model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Cpf</th>
-      <th>Phone</th>
-      <th>Cellphone</th>
-      <th>Street</th>
-      <th>Number</th>
-      <th>Compl</th>
-      <th>Neighbor</th>
-      <th>City</th>
-      <th>Country</th>
-      <th>Company</th>
-      <th>Social</th>
-      <th>Cnpj</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:cpf) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:cellphone) %></th>
+      <th><%= model_class.human_attribute_name(:street) %></th>
+      <th><%= model_class.human_attribute_name(:number) %></th>
+      <th><%= model_class.human_attribute_name(:compl) %></th>
+      <th><%= model_class.human_attribute_name(:neighbor) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:country) %></th>
+      <th><%= model_class.human_attribute_name(:company) %></th>
+      <th><%= model_class.human_attribute_name(:social) %></th>
+      <th><%= model_class.human_attribute_name(:cnpj) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', default: t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= profile.name %></td>
-        <td><%= profile.email %></td>
-        <td><%= profile.cpf %></td>
-        <td><%= profile.phone %></td>
-        <td><%= profile.cellphone %></td>
-        <td><%= profile.street %></td>
-        <td><%= profile.number %></td>
-        <td><%= profile.compl %></td>
-        <td><%= profile.neighbor %></td>
-        <td><%= profile.city %></td>
-        <td><%= profile.country %></td>
-        <td><%= profile.company %></td>
-        <td><%= profile.social %></td>
-        <td><%= profile.cnpj %></td>
-        <td><%= profile.user %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= profile.id %></td>
+          <td><%= profile.name %></td>
+          <td><%= profile.email %></td>
+          <td><%= profile.cpf %></td>
+          <td><%= profile.phone %></td>
+          <td><%= profile.cellphone %></td>
+          <td><%= profile.street %></td>
+          <td><%= profile.number %></td>
+          <td><%= profile.compl %></td>
+          <td><%= profile.neighbor %></td>
+          <td><%= profile.city %></td>
+          <td><%= profile.country %></td>
+          <td><%= profile.company %></td>
+          <td><%= profile.social %></td>
+          <td><%= profile.cnpj %></td>
+          <td><%= profile.user_id %></td>
+        <td><%=l profile.created_at, format: :long %></td>
+        <td>
+          <%= link_to profile_path(profile), class: 'btn btn-xs', title: "#{ t('.show', default: t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+          <%- end -%>
+          <%= link_to edit_profile_path(profile), class: 'btn btn-xs', title: "#{ t('.edit', default: t('helpers.links.edit')) }" do %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to profile_path(profile), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-xs', title: "#{ t('.destroy', default: t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Profile', new_profile_path %>
+<%= link_to t('.new', default: t("helpers.links.new")),
+            new_profile_path,
+            class: 'btn btn-primary' %>
