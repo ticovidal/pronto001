@@ -13,10 +13,14 @@ class ApplicationController < ActionController::Base
         end
 
 		def after_sign_in_path_for(resource)
-		    if current_user.status == 'industry'
-		      dashboard_industry_path
-		    elsif current_user.status == 'provider'
-		      dashboard_provider_path
-		    end  
+			if current_user.profile
+			    if current_user.status == 'industry'
+			      dashboard_industry_path
+			    elsif current_user.status == 'provider'
+			      dashboard_provider_path
+			    end
+			else
+				new_profile_path
+			end  
 		end
 end
