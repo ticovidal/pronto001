@@ -15,6 +15,7 @@ class SubcategoriesTest < ApplicationSystemTestCase
     click_on "New Subcategory"
 
     fill_in "Category", with: @subcategory.category_id
+    fill_in "Description", with: @subcategory.description
     fill_in "Name", with: @subcategory.name
     click_on "Create Subcategory"
 
@@ -27,6 +28,7 @@ class SubcategoriesTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Category", with: @subcategory.category_id
+    fill_in "Description", with: @subcategory.description
     fill_in "Name", with: @subcategory.name
     click_on "Update Subcategory"
 

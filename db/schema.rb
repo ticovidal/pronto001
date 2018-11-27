@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_101820) do
+ActiveRecord::Schema.define(version: 2018_11_27_103821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "industries", force: :cascade do |t|
     t.boolean "team"
@@ -45,11 +52,55 @@ ActiveRecord::Schema.define(version: 2018_11_21_101820) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.date "end"
+    t.bigint "category_id"
+    t.bigint "industry_id"
+    t.boolean "visibility"
+    t.string "mincost"
+    t.string "maxcost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_projects_on_category_id"
+    t.index ["industry_id"], name: "index_projects_on_industry_id"
+  end
+
+  create_table "proposes", force: :cascade do |t|
+    t.text "description"
+    t.string "value"
+    t.bigint "provider_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_proposes_on_project_id"
+    t.index ["provider_id"], name: "index_proposes_on_provider_id"
+  end
+
   create_table "providers", force: :cascade do |t|
     t.bigint "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_providers_on_profile_id"
+  end
+
+  create_table "subcategories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_subcategories_on_category_id"
+  end
+
+  create_table "subctegories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_subctegories_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,5 +119,11 @@ ActiveRecord::Schema.define(version: 2018_11_21_101820) do
 
   add_foreign_key "industries", "profiles"
   add_foreign_key "profiles", "users"
+  add_foreign_key "projects", "categories"
+  add_foreign_key "projects", "industries"
+  add_foreign_key "proposes", "projects"
+  add_foreign_key "proposes", "providers"
   add_foreign_key "providers", "profiles"
+  add_foreign_key "subcategories", "categories"
+  add_foreign_key "subctegories", "categories"
 end

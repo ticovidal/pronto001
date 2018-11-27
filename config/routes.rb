@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :proposes
+  resources :projects
+  resources :subctegories
   get 'dashboard/industry'
   get 'dashboard/provider'
   resources :providers

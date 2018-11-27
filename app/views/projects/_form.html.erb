@@ -1,0 +1,58 @@
+<%= form_for @project, html: { class: 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, class: 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :description, class: 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :end, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :end, class: 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :category_id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :category_id, class: 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :industry_id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :industry_id, class: 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :visibility, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :visibility, class: 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :mincost, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :mincost, class: 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :maxcost, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :maxcost, class: 'text_field form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, class: 'btn btn-primary' %>
+      <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+                  projects_path, class: 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>
