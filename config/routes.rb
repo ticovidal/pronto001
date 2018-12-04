@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'control_users/index'
   resources :proposes
   resources :projects
   resources :subctegories

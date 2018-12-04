@@ -14,4 +14,23 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
- main{margin-top:50px;}
+ @import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700,800&subset=latin-ext');
+ main{margin-top:80px;}
+.navbar-fixed-top{height:90px; background:white; border-bottom:1px solid #eeeeee;}
+.navbar-nav > li > a {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    /* Style for "ATUAÇÃO" */
+	color: #29324a !important;
+	font-family: Raleway;
+	font-size: 14px;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+.navbar-brand {
+    float: left;
+    padding: 31px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 55px;
+}
