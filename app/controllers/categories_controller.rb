@@ -5,6 +5,15 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+    if current_user.profile
+          if current_user.status == 'industry'
+            dashboard_industry_path
+          elsif current_user.status == 'provider'
+            dashboard_provider_path
+          end
+      else
+        new_profile_path
+      end  
   end
 
   # GET /categories/1
