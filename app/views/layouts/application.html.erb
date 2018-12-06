@@ -38,20 +38,38 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-collapse collapse navbar-responsive-collapse pull-right">
           <ul class="nav navbar-nav">
-            <% if user_signed_in? %>
-            <li><%= link_to "Dashboard", '#' %></li>
-            <li><%= link_to "Perfil", '#' %></li>
-            <li><%= link_to "Conta", '#' %></li>
-            <li><%= link_to "Ajuda", '#' %></li>
-              <% if current_user.status == 'industry' %>
-              <li><%= link_to "Cadastrar projeto", '#' %></li>
-              <% end %>
-              <% if current_user.status == 'provider' %>
-              <li><%= link_to "Cadastrar projeto", '#' %></li>
-              <% end %>
-            <li><%= link_to current_user.email, destroy_user_session_path, method: :delete %></li>
 
+            <% if user_signed_in? %>
+              <% if current_user.status == 'industry' %>
+                <li><%= link_to "Dashboard", dashboard_industry_path %></li>
+                <% if current_user.profile %>
+                  <li><%= link_to "Perfil", profiles_path + "/" + current_user.profile.id.to_s %></li>
+                <% end %>
+
+                <li><%= link_to "Conta", '#' %></li>
+                <li><%= link_to "Ajuda", '#' %></li>
+                <li><%= link_to "Cadastrar projeto", new_project_path, class:"btn btn-primary" %></li>
+                <li><%= link_to current_user.email, destroy_user_session_path, method: :get %></li>
+              <% elsif current_user.status == 'provider' %>
+                <li><%= link_to "Dashboard", dashboard_provider_path %></li>
+                <% if current_user.profile %>
+                  <li><%= link_to "Perfil", profiles_path + "/" + current_user.profile.id.to_s %></li>
+                <% end %>
+                <li><%= link_to "Conta", '#' %></li>
+                <li><%= link_to "Ajuda", '#' %></li>
+                <li><%= link_to "Buscar projeto", projects_path, class:"btn btn-primary" %></li>
+                <li><%= link_to current_user.email, destroy_user_session_path, method: :get %></li>
+              <% end %>
+
+            <% else %>
+                <li><%= link_to "Atuação", dashboard_industry_path %></li>
+                <li><%= link_to "Vantagens", "#" %></li>
+                <li><%= link_to "Quem somos", '#' %></li>
+                <li><%= link_to "Contato", '#' %></li>
+                <li><%= link_to "Login", new_user_session_path %></li>
+                <li><%= link_to "Cadastre-se", new_user_registration_path, class:"btn btn-primary" %></li>
             <% end %>
+
           </ul>
         </div><!-- /.navbar-collapse -->
       </div>

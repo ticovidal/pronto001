@@ -1,35 +1,37 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "col-md-4 col-sm-12 col-md-offset-4"}) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
+  <h3>CRIAR UMA CONTA</h3>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'control-label col-xs-12', autofocus: true, autocomplete: "email" %>
+  </div>
+  <div class="form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, class: 'control-label col-xs-12', autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, class: 'control-label col-xs-12', autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :satus %><br />
-    <%= f.radio_button :status, 'provider' %> Quero trabalhar como prestador de serviços para a indústria<br />
-    <%= f.radio_button :status, 'industry' %> Sou uma indústria e quero contratar um serviço de um prestador<br />
+  <div class="form-group">
+    <hr/>
+    Escolha uma categoria para se cadastrar<br/>em nossa plataforma.<br/><br/>
+
+    <%= f.radio_button :status, 'provider' %> <small>Quero trabalhar como <strong>prestador de serviços para a indústria</strong></small><br />
+    <%= f.radio_button :status, 'industry' %> <small>Sou uma indústria e quero <strong>contratar um serviço de um prestador</strong></small><br />&nbsp;
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="">
+    <%= f.submit "Continuar", class: 'btn btn-primary' %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

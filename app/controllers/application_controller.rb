@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
 
     before_action :configure_permitted_parameters, if: :devise_controller?
-    
+    before_action :reload_one
 
     protected
 
@@ -31,5 +31,11 @@ class ApplicationController < ActionController::Base
 				new_profile_path
 			end  
 		end
-		
+		def reload_one
+			if user_signed_in?
+			unless current_user.profile or request.path == new_profile_path or request.path == profiles_path or request.path == destroy_user_session_path
+				redirect_to new_profile_path
+			end
+			end  
+		end
 end

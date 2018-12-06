@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @profiles = Profile.all
+    authorize  @profiles
   end
 
   # GET /profiles/1
@@ -15,6 +16,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @profile = Profile.new
+    authorize  @profile
   end
 
   # GET /profiles/1/edit

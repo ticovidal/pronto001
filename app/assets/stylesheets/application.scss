@@ -15,7 +15,8 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700,800&subset=latin-ext');
- main{margin-top:80px;}
+ body{background:#F5F5F5; font-family: Raleway; font-weight: 400;}
+ main{margin-top:140px;}
 .navbar-fixed-top{height:90px; background:white; border-bottom:1px solid #eeeeee;}
 .navbar-nav > li > a {
     padding-top: 32px;
@@ -33,4 +34,43 @@
     font-size: 18px;
     line-height: 20px;
     height: 55px;
+}
+form {
+	width:400px;
+	height:auto;
+	display:block;
+	margin: auto;
+	padding:20px;
+	border: 1px solid #eeeeee;
+	background: white;
+}
+form span {
+		padding:30px;
+		text-align:center !important;
+		margin-top:50px;
+}
+
+.control-label {border-radius:20px; padding: 5px 15px; border-style:solid; border:1px solid #cccccc
+}
+.form-group{
+	margin-top:10px; display:block;
+	min-height:55px;
+}
+
+h3 { text-align:center;
+    width: 100%;
+	color: #29324a !important;
+	font-family: Raleway;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+.btn-primary {background:black;
+	color: white !important;
+	font-family: Raleway;
+	font-weight: 800;
+	text-transform: uppercase;
+	border-radius:20px;
+	padding: 5px 15px;
+	margin:auto 10%;
+	width:80%;
 }

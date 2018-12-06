@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   enum status: [:provider, :industry, :superuser]
   has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile, allow_destroy: true
 end
