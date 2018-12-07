@@ -74,3 +74,55 @@ h3 { text-align:center;
 	margin:auto 10%;
 	width:80%;
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+
+.grid-container > div {
+  margin: 10px;
+  border: 1px solid #aaaaaa;
+  background: white;
+  border-radius: 1px;
+  font-size: 30px;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+}
+
+.grid-container > div > span {
+  float:left;
+  text-align: left !important;
+  margin:20px;
+  width:90px;
+  height: 90px;
+  border:1px solid #aaaaaa;
+  background: #fcfcfc;
+  border-radius: 50%;
+  padding:25px;
+  display: block;
+}
+
+.grid-container > div > div {
+  float:left;
+  text-align: left !important;
+  margin:40px 20px 50px 50px;;
+  width:70px;
+  height: 70px;
+  border:1px solid #aaaaaa;
+  background: #fcfcfc;
+  border-radius: 50%;
+  padding:20px;
+  display: block;
+}
+
+.grid-container > div > h2 {font-size:40px; text-align: left !important; font-weight:700 !important; margin-top:30px; margin-bottom:0px; }
+.grid-container > div > h3 {text-align:center; font-size:30px; text-align: left !important; font-weight:700 !important; margin-top:40px; margin-bottom:0px; font-variant: all-small-caps;}
+.grid-container > div > p {font-size:15px; text-align: left !important;  font-variant: all-small-caps;}
+
+.grid-container > .div-last {
+  grid-column: 2 / span 2;
+  grid-row: 2;
+}
+.grid-container > div > aside > span {}
