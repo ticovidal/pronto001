@@ -1,0 +1,54 @@
+<%- model_class = Adress -%>
+<div class="page-header">
+  <h1><%=t '.title', default: model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:street) %></th>
+      <th><%= model_class.human_attribute_name(:number) %></th>
+      <th><%= model_class.human_attribute_name(:compl) %></th>
+      <th><%= model_class.human_attribute_name(:neighborhood) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:country) %></th>
+      <th><%= model_class.human_attribute_name(:zip) %></th>
+      <th><%= model_class.human_attribute_name(:profile_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', default: t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @adresses.each do |adress| %>
+      <tr>
+        <td><%= adress.id %></td>
+          <td><%= adress.street %></td>
+          <td><%= adress.number %></td>
+          <td><%= adress.compl %></td>
+          <td><%= adress.neighborhood %></td>
+          <td><%= adress.city %></td>
+          <td><%= adress.state %></td>
+          <td><%= adress.country %></td>
+          <td><%= adress.zip %></td>
+          <td><%= adress.profile_id %></td>
+        <td><%=l adress.created_at, format: :long %></td>
+        <td>
+          <%= link_to adress_path(adress), class: 'btn btn-xs', title: "#{ t('.show', default: t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+          <%- end -%>
+          <%= link_to edit_adress_path(adress), class: 'btn btn-xs', title: "#{ t('.edit', default: t('helpers.links.edit')) }" do %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to adress_path(adress), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-xs', title: "#{ t('.destroy', default: t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', default: t("helpers.links.new")),
+            new_adress_path,
+            class: 'btn btn-primary' %>

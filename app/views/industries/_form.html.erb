@@ -1,32 +1,63 @@
-<%= form_with(model: industry, local: true) do |form| %>
-  <% if industry.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(industry.errors.count, "error") %> prohibited this industry from being saved:</h2>
+<%= form_for @industry, html: { class: 'form-horizontal col-md-8 col-md-offset-2' } do |f| %>
+<h1>Cadastre-se como <%= current_user.status %></h1>
+<h4>Etapa 3 de 3</h4>
+<h3>Dados da empresa</h3>
 
-      <ul>
-      <% industry.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<section class="col-sm-12 col-md-6">
+<%= f.fields_for :enterprise do |enterprise_fields| %>
+
+     <div class="form-group">
+    <%= enterprise_fields.label :company, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+    <%= enterprise_fields.text_field :company, class: 'text_field form-control' %>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <%= enterprise_fields.label :social, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+    <%= enterprise_fields.text_field :social, class: 'text_field form-control' %>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <%= enterprise_fields.label :cnpj, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+    <%= enterprise_fields.text_field :cnpj, class: 'text_field form-control' %>
+  </div>
+  </div>
+  </section>
+
+<section class="col-sm-12 col-md-6">
+
+  <div class="form-group">
+    <%= enterprise_fields.label :enterpriseable_id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+    <%= enterprise_fields.text_field :enterpriseable_id %>
+  </div>
+  </div>
+    <% end %>
+  <div class="form-group">
+    <%= f.label :team, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :team, class: 'text_field form-control' %>
     </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :technic, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :technic, class: 'text_field form-control' %>
+    </div>
+  </div>
+  <%= f.collection_select(:category_id, @category_options_for_select, :id, :name, prompt: true) %>
+</section>
+
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, class: 'btn btn-primary' %>
+      <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+                  industries_path, class: 'btn btn-default' %>
+    </div>
+  </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :team %>
-    <%= form.check_box :team %>
-  </div>
-
-  <div class="field">
-    <%= form.label :technic %>
-    <%= form.text_field :technic %>
-  </div>
-
-  <div class="field">
-    <%= form.label :profile_id %>
-    <%= form.text_field :profile_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

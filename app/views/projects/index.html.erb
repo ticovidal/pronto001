@@ -20,7 +20,7 @@
   </thead>
   <tbody>
     <% @projects.each do |project| %>
-    <% if project.profile.user.id == current_user.id or current_user.status == :superadmin %>
+    <% if project.industry.profile.user.id == current_user.id or current_user.status == :superadmin %>
       <tr>
         <td><%= project.id %></td>
           <td><%= project.name %></td>

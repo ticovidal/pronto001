@@ -15,10 +15,14 @@ class ProvidersController < ApplicationController
   # GET /providers/new
   def new
     @provider = Provider.new
+    @provider.build_enterprise
+    
   end
 
   # GET /providers/1/edit
   def edit
+    @provider.build_enterprise unless @provider.enterprise
+    
   end
 
   # POST /providers
@@ -28,6 +32,9 @@ class ProvidersController < ApplicationController
 
     respond_to do |format|
       if @provider.save
+        profile = Profile.find(current_user.profile.id)
+        profile.update(profileable_id: @provider.id)
+        profile.update(profileable_type: "provider")
         format.html { redirect_to @provider, notice: 'Provider was successfully created.' }
         format.json { render :show, status: :created, location: @provider }
       else
@@ -69,6 +76,6 @@ class ProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:profile_id)
+      params.require(:provider).permit(subcategory_ids: [], enterprise_attributes:[:company, :social, :cnpj, :enterpriseable_id, :enterpriseable_type])
     end
 end

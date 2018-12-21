@@ -33,9 +33,27 @@ class ApplicationController < ActionController::Base
 		end
 		def reload_one
 			if user_signed_in?
-			unless current_user.profile or request.path == new_profile_path or request.path == profiles_path or request.path == destroy_user_session_path
-				redirect_to new_profile_path
-			end
+				if current_user.profile
+					if current_user.profile.adress
+							if current_user.status == "industry"
+								unless current_user.profile.profileable_id or request.path == new_industry_path or request.path == industries_path or request.path == destroy_user_session_path
+							      redirect_to new_industry_path
+							    end
+							elsif current_user.status == "provider"
+						        unless current_user.profile.profileable_id or request.path == new_provider_path or request.path == providers_path or request.path == destroy_user_session_path
+							      redirect_to new_provider_path
+							    end
+							end
+					else
+						unless request.path == new_adress_path or request.path == adresses_path or request.path == destroy_user_session_path
+						    redirect_to new_adress_path
+						end
+					end
+				else
+					unless request.path == new_profile_path or request.path == profiles_path or request.path == destroy_user_session_path
+						redirect_to new_profile_path
+					end
+				end
 			end  
 		end
 end

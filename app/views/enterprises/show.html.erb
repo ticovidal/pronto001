@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @enterprise.company %>
+</p>
+
+<p>
+  <strong>Social:</strong>
+  <%= @enterprise.social %>
+</p>
+
+<p>
+  <strong>Cnpj:</strong>
+  <%= @enterprise.cnpj %>
+</p>
+
+<p>
+  <strong>Enterpriseable:</strong>
+  <%= @enterprise.enterpriseable %>
+</p>
+
+<%= link_to 'Edit', edit_enterprise_path(@enterprise) %> |
+<%= link_to 'Back', enterprises_path %>

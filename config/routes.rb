@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :indcats
+  resources :enterprises
+  resources :adresses
   get 'control_users/index'
   resources :proposes
   resources :projects

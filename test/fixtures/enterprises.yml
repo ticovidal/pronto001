@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: MyString
+  social: MyString
+  cnpj: MyString
+  enterpriseable: one
+  enterpriseable_type: Enterpriseable
+
+two:
+  company: MyString
+  social: MyString
+  cnpj: MyString
+  enterpriseable: two
+  enterpriseable_type: Enterpriseable

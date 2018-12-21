@@ -15,6 +15,8 @@ class IndustriesController < ApplicationController
   # GET /industries/new
   def new
     @industry = Industry.new
+    @industry.build_enterprise
+    options_for_select
   end
 
   # GET /industries/1/edit
@@ -28,6 +30,9 @@ class IndustriesController < ApplicationController
 
     respond_to do |format|
       if @industry.save
+        profile = Profile.find(current_user.profile.id)
+        profile.update(profileable_id: @industry.id)
+        profile.update(profileable_type: "industry")
         format.html { redirect_to @industry, notice: 'Industry was successfully created.' }
         format.json { render :show, status: :created, location: @industry }
       else
@@ -62,6 +67,9 @@ class IndustriesController < ApplicationController
   end
 
   private
+    def options_for_select
+      @category_options_for_select = Category.all
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_industry
       @industry = Industry.find(params[:id])
@@ -69,6 +77,6 @@ class IndustriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def industry_params
-      params.require(:industry).permit(:team, :technic, :profile_id)
+      params.require(:industry).permit(:category_id, :team, :technic, enterprise_attributes:[:id, :company, :social, :cnpj, :enterpriseable_id, :enterpriseable_type], indcats_attributes:[:id, :industry_id, :category_id])
     end
 end

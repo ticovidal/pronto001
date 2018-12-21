@@ -1,7 +1,6 @@
 class Profile < ApplicationRecord
-  has_many :industries, dependent: :destroy
-  accepts_nested_attributes_for :industries, allow_destroy: true
-  has_many :providers, dependent: :destroy
-  accepts_nested_attributes_for :providers, allow_destroy: true
   belongs_to :user, optional: true
+  belongs_to :profileable, polymorphic: true, optional: true
+  has_one :adress
+  accepts_nested_attributes_for :adress, allow_destroy: true
 end

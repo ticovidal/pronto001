@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Industry:</strong>
+  <%= @indcat.industry %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @indcat.category %>
+</p>
+
+<%= link_to 'Edit', edit_indcat_path(@indcat) %> |
+<%= link_to 'Back', indcats_path %>
