@@ -1,37 +1,74 @@
 <%- model_class = Project -%>
-<div class="page-header">
-  <h1><%=t '.title', default: model_class.model_name.human.titleize %></h1>
-</div>
+<section class="col-md-12 col-lg-12">
+  <section class="col-md-8 col-sm-12 box-in">
+  <h4><%= model_class.human_attribute_name(:name) %></h4>
+  <h2><%= @project.name %></h2>
+  <%= @project.created_at %> | Postado por <%= @industry.enterprise.social %>
+  <br/>
+  <br/>
+  <br/>
+  <h4><%= model_class.human_attribute_name(:description) %></h4>
+  <br/>
+  <%= @project.description %>
+  <br/>
+  <br/>
+  <h4>anexos</h4>
+  --
+  <!--<%= model_class.human_attribute_name(:end) %>
+        <%= @project.end %>
+  <%= model_class.human_attribute_name(:industry_id) %>
+        <%= @project.industry_id %>
+  <%= model_class.human_attribute_name(:maxcost) %>
+        <%= @project.maxcost %>//-->
+  </section>
+   
 
-<div class="fieldset">
-  <dl>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
-      <dd><pre class="prettyprint"><%= @project.name %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
-      <dd><pre class="prettyprint"><%= @project.description %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:end) %></dt>
-      <dd><pre class="prettyprint"><%= @project.end %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:category_id) %></dt>
-      <dd><pre class="prettyprint"><%= @project.category_id %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:industry_id) %></dt>
-      <dd><pre class="prettyprint"><%= @project.industry_id %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:visibility) %></dt>
-      <dd><pre class="prettyprint"><%= @project.visibility %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:mincost) %></dt>
-      <dd><pre class="prettyprint"><%= @project.mincost %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:maxcost) %></dt>
-      <dd><pre class="prettyprint"><%= @project.maxcost %></pre></dd>
-  </dl>
-</div>
+   <aside class="col-md-4 col-sm-12">
+   <div class="col-sm-12 box-in box-mini">
+     <h4>informações</h4>
+     <br/>
+     <br/>
+     <table style="color:blue; width:100%">
+       <tr>
+         <td style="width:50%"><%= model_class.human_attribute_name(:category_id) %></td>
+         <td style="width:50%"><%= @project.category_id %></td>
+       </tr>
+       <tr>
+         <td><%= model_class.human_attribute_name(:subcategory_id) %></td>
+         <td><%= @project.subcategory_id %></td>
+       </tr>
+       <tr>
+         <td><%= model_class.human_attribute_name(:mincost) %></td>
+         <td><%= @project.mincost %></td>
+       </tr>
+       <tr>
+         <td><%= model_class.human_attribute_name(:visibility) %></td>
+         <td><%= @project.visibility %></td>
+       </tr>
+       <tr>
+         <td>Propostas</td>
+         <td>--</td>
+       </tr>
+     </table>
+   </div>
 
-<div class="form-group">
-  <%= link_to t('.back', default: t("helpers.links.back")),
-              projects_path, class: 'btn btn-default'  %>
-  <%= link_to t('.edit', default: t("helpers.links.edit")),
-              edit_project_path(@project), class: 'btn btn-default' %>
-  <%= link_to t('.destroy', default: t("helpers.links.destroy")),
-              project_path(@project),
-              method: 'delete',
-              data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) },
-              class: 'btn btn-danger' %>
-</div>
+   <a href="#" class="btn btn-primary btn-lateral col-md-6 col-sm-12">finalizar projeto</a>
+   <a href="#" class="btn btn-primary btn-lateral col-md-4 col-sm-12 pull-right">mensagem</a>
+   </aside>
+
+
+
+
+
+</section>
+  <!--<div class="form-group">
+    <%= link_to t('.back', default: t("helpers.links.back")),
+                projects_path, class: 'btn btn-default'  %>
+    <%= link_to t('.edit', default: t("helpers.links.edit")),
+                edit_project_path(@project), class: 'btn btn-default' %>
+    <%= link_to t('.destroy', default: t("helpers.links.destroy")),
+                project_path(@project),
+                method: 'delete',
+                data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) },
+                class: 'btn btn-danger' %>
+  </div>//-->

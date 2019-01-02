@@ -1,8 +1,9 @@
 <%= form_for @adress, html: { class: 'form-horizontal col-md-8 col-md-offset-2' } do |f| %>
+<% if request.path == new_adress_path %>
 <h1>Cadastre-se como <%= current_user.status %></h1>
 <h4>Etapa 2 de 3</h4>
-<h3>Dados do endereço</h3>
-
+<h3 class="headlogin">Dados do endereço</h3>
+<% end %>
   <div class="form-group col-md-8">
     <%= f.label :street, class: 'control-label' %>
     <div class="col-md-12">
@@ -60,7 +61,6 @@
       <%= f.text_field :zip, class: 'text_field form-control' %>
     </div>
   </div>
-  </section>
 
   
     
@@ -73,5 +73,4 @@
      
     </div>
   </div>
-  <% end %>
-
+<% end %>

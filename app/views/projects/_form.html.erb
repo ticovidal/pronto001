@@ -18,15 +18,9 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :category_id, class: 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :category_id, class: 'text_field form-control' %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :industry_id, class: 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :industry_id, class: 'text_field form-control' %>
+    <%= f.label :subcategory_id, class: 'control-label col-md-2' %>
+    <div class="col-md-12">
+      <%= f.collection_select(:subcategory_id, @subcategory_options_for_select, :id, :name, prompt: true) %>
     </div>
   </div>
   <div class="form-group">

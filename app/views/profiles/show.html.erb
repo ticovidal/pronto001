@@ -5,6 +5,9 @@
 
 <div class="fieldset">
   <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:id) %></dt>
+      <dd><pre class="prettyprint"><%= @profile.id %></pre></dd>
+      <h1><%= current_user.profile.id %></h1>
       <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
       <dd><pre class="prettyprint"><%= @profile.name %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:email) %></dt>
@@ -35,6 +38,16 @@
       <dd><pre class="prettyprint"><%= @profile.cnpj %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:user_id) %></dt>
       <dd><pre class="prettyprint"><%= @profile.user_id %></pre></dd>
+      <h1><%= current_user.id %></h1>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:profileable_type) %></dt>
+      <dd><pre class="prettyprint"><%= @profile.profileable_type %></pre></dd>
+      <h1><%= current_user.profile.profileable_type %></h1>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:profileable_id) %></dt>
+      <dd><pre class="prettyprint"><%= @profile.profileable_id %></pre></dd>
+      <h1><%= current_user.profile.profileable_id %></h1>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:category) %></dt>
+      <dd><pre class="prettyprint"><% if @profile.profileable_type == "industry" %><%= @type_options_for_select.name %><% elsif @profile.profileable_type == "provider" %><% @type_options_for_select.each do |ty| %><%= ty.name %><br/><% end %><% end %></pre></dd>
+      
   </dl>
 </div>
 

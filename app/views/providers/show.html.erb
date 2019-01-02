@@ -15,7 +15,7 @@
   </dt>
 </div>
 
-
+<h1><%= current_user.profile.profileable_type %></h1>
 <div class="form-group">
   <%= link_to t('.back', default: t("helpers.links.back")),
               providers_path, class: 'btn btn-default'  %>

@@ -32,9 +32,10 @@ class ProvidersController < ApplicationController
 
     respond_to do |format|
       if @provider.save
-        profile = Profile.find(current_user.profile.id)
-        profile.update(profileable_id: @provider.id)
-        profile.update(profileable_type: "provider")
+      
+          profile = Profile.find(current_user.profile.id)
+          profile.update(profileable_id: @provider.id)
+
         format.html { redirect_to @provider, notice: 'Provider was successfully created.' }
         format.json { render :show, status: :created, location: @provider }
       else
@@ -68,7 +69,11 @@ class ProvidersController < ApplicationController
     end
   end
 
-  private
+  private  
+    def options_for_select
+      @type_options_for_select = Provider.find(@profile.profileable_id)
+      @projects_options_for_select = Projects.where(subcategory_id: @provider.subcategory_ids)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_provider
       @provider = Provider.find(params[:id])

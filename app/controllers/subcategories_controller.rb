@@ -69,6 +69,6 @@ class SubcategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subcategory_params
-      params.require(:subcategory).permit(:name, :description, :category_id)
+      params.require(:subcategory).permit(:name, :description, :category_id, projects_attributes:[:id, :name, :description, :end, :subcategory_id, :industry_id, :visibility, :mincost, :maxcost])
     end
 end

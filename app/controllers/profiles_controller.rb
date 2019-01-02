@@ -6,11 +6,14 @@ class ProfilesController < ApplicationController
   def index
     @profiles = Profile.all
     authorize  @profiles
+    options_for_select
   end
 
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    options_for_select
+    @proj = Project.all
   end
 
   # GET /profiles/new
@@ -30,6 +33,9 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
+          @status = current_user.status
+          @profile.update(profileable_type: @status)
+          @profile.update(user_id: current_user.id)
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
@@ -64,6 +70,15 @@ class ProfilesController < ApplicationController
   end
 
   private
+    def options_for_select
+      if @profile.profileable_type == "industry"
+        industry = Industry.find(@profile.profileable_id)
+        @type_options_for_select = Category.find(industry.category_id)
+      elsif @profile.profileable_type == "provider"
+        provider = Provider.find(@profile.profileable_id)
+        @type_options_for_select = Subcategory.where(id: provider.subcategory_ids)
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
       @profile = Profile.find(params[:id])

@@ -21,6 +21,8 @@ class IndustriesController < ApplicationController
 
   # GET /industries/1/edit
   def edit
+    @industry.build_enterprise unless @industry.enterprise
+    options_for_select
   end
 
   # POST /industries
@@ -30,9 +32,10 @@ class IndustriesController < ApplicationController
 
     respond_to do |format|
       if @industry.save
-        profile = Profile.find(current_user.profile.id)
-        profile.update(profileable_id: @industry.id)
-        profile.update(profileable_type: "industry")
+
+          profile = Profile.find(current_user.profile.id)
+          profile.update(profileable_id: @industry.id)
+
         format.html { redirect_to @industry, notice: 'Industry was successfully created.' }
         format.json { render :show, status: :created, location: @industry }
       else

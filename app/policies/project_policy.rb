@@ -1,6 +1,6 @@
 class ProjectPolicy < ApplicationPolicy
   def index?
-  	user.superuser? or user.industry?
+  	user.superuser? or user.industry? or user.provider?
   end
   def new?
   	user.superuser? or user.industry?

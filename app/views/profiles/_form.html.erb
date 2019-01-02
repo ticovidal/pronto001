@@ -1,7 +1,9 @@
 <%= form_for @profile, html: { class: 'form-horizontal col-md-8 col-md-offset-2' } do |f| %>
+<% if request.path == new_profile_path %>
 <h1>Cadastre-se como <%= current_user.status %></h1>
 <h4>Etapa 1 de 3</h4>
-<h3>Dados do responsável</h3>
+<h3 class="headlogin">Dados do responsável</h3>
+<% end %>
 <section class="col-sm-12 col-md-6">
   <div class="form-group">
     <%= f.label :name, class: 'control-label' %>
@@ -38,9 +40,6 @@
   </div>
 </section>
 
-
-
-      <%= f.hidden_field :user_id, value: current_user.id, class: 'text_field form-control' %>
 
 
 
