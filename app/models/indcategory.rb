@@ -1,0 +1,2 @@
+class Indcategory < ApplicationRecord
+end

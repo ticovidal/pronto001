@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :indcategories
   resources :indcats
   resources :enterprises
   resources :adresses

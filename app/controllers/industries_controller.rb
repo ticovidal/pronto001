@@ -71,7 +71,7 @@ class IndustriesController < ApplicationController
 
   private
     def options_for_select
-      @category_options_for_select = Category.all
+      @indcategory_options_for_select = IndCategory.all
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_industry
@@ -80,6 +80,6 @@ class IndustriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def industry_params
-      params.require(:industry).permit(:category_id, :team, :technic, enterprise_attributes:[:id, :company, :social, :cnpj, :enterpriseable_id, :enterpriseable_type], indcats_attributes:[:id, :industry_id, :category_id])
+      params.require(:industry).permit(:Indcategory_id, :team, :technic, enterprise_attributes:[:id, :company, :social, :cnpj, :enterpriseable_id, :enterpriseable_type], indcats_attributes:[:id, :industry_id, :category_id])
     end
 end

@@ -87,8 +87,7 @@ class ProjectsController < ApplicationController
         end    
     end
     def options_for_select
-      @industry_set = Industry.find(current_user.profile.profileable_id)
-      @subcategory_options_for_select = Subcategory.where(category_id: @industry_set.category.id)
+      @subcategory_options_for_select = Subcategory.all
     end
     def industry
       @industry = Industry.find(@project.industry_id)

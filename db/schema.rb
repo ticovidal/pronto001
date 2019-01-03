@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_28_113649) do
+ActiveRecord::Schema.define(version: 2019_01_03_110936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 2018_12_28_113649) do
     t.index ["industries_id"], name: "index_ind_categorizations_on_industries_id"
   end
 
+  create_table "indcategories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "indcats", force: :cascade do |t|
     t.bigint "industry_id"
     t.bigint "category_id"
@@ -72,7 +79,9 @@ ActiveRecord::Schema.define(version: 2018_12_28_113649) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
+    t.bigint "indcategory_id"
     t.index ["category_id"], name: "index_industries_on_category_id"
+    t.index ["indcategory_id"], name: "index_industries_on_indcategory_id"
   end
 
   create_table "linkcats", force: :cascade do |t|
@@ -205,6 +214,7 @@ ActiveRecord::Schema.define(version: 2018_12_28_113649) do
   add_foreign_key "indcats", "categories"
   add_foreign_key "indcats", "industries"
   add_foreign_key "industries", "categories"
+  add_foreign_key "industries", "indcategories"
   add_foreign_key "linkcats", "providers"
   add_foreign_key "linkcats", "subcategories"
   add_foreign_key "profiles", "users"
