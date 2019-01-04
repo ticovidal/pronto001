@@ -71,7 +71,7 @@ class IndustriesController < ApplicationController
 
   private
     def options_for_select
-      @indcategory_options_for_select = IndCategory.all
+      @indcategory_options_for_select = Indcategory.all
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_industry
