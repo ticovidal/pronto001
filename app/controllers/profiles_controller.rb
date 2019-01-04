@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @profiles = Profile.all
-    authorize  @profiles
+    #authorize  @profiles
     options_for_select
   end
 
@@ -73,7 +73,7 @@ class ProfilesController < ApplicationController
     def options_for_select
       if @profile.profileable_type == "industry"
         industry = Industry.find(@profile.profileable_id)
-        @type_options_for_select = Category.find(industry.category_id)
+        @type_options_for_select = Indcategory.find(industry.category_id)
       elsif @profile.profileable_type == "provider"
         provider = Provider.find(@profile.profileable_id)
         @type_options_for_select = Subcategory.where(id: provider.subcategory_ids)

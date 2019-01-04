@@ -45,9 +45,9 @@
       <dt class="label label-default"><%= model_class.human_attribute_name(:profileable_id) %></dt>
       <dd><pre class="prettyprint"><%= @profile.profileable_id %></pre></dd>
       <h1><%= current_user.profile.profileable_id %></h1>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:category) %></dt>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:ategory) %></dt>
       <dd><pre class="prettyprint"><% if @profile.profileable_type == "industry" %><%= @type_options_for_select.name %><% elsif @profile.profileable_type == "provider" %><% @type_options_for_select.each do |ty| %><%= ty.name %><br/><% end %><% end %></pre></dd>
-      
+
   </dl>
 </div>
 
