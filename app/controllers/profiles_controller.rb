@@ -73,7 +73,9 @@ class ProfilesController < ApplicationController
     def options_for_select
       if @profile.profileable_type == "industry"
         industry = Industry.find(@profile.profileable_id)
-        @type_options_for_select = Indcategory.find(industry.indcategory_id)
+        if industry.indcategory_id
+         @type_options_for_select = Indcategory.find(industry.indcategory_id)
+        end
       elsif @profile.profileable_type == "provider"
         provider = Provider.find(@profile.profileable_id)
         @type_options_for_select = Subcategory.where(id: provider.subcategory_ids)
