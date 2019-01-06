@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_03_110936) do
+ActiveRecord::Schema.define(version: 2019_01_06_205638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,8 @@ ActiveRecord::Schema.define(version: 2019_01_03_110936) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "subcategory_id"
+    t.integer "dependency_id"
+    t.boolean "has_dependency"
     t.index ["category_id"], name: "index_projects_on_category_id"
     t.index ["industry_id"], name: "index_projects_on_industry_id"
     t.index ["subcategory_id"], name: "index_projects_on_subcategory_id"
