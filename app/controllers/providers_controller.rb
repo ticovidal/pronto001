@@ -36,7 +36,7 @@ class ProvidersController < ApplicationController
           profile = Profile.find(current_user.profile.id)
           profile.update(profileable_id: @provider.id)
 
-        format.html { redirect_to @provider, notice: 'Provider was successfully created.' }
+        format.html { redirect_to dashboard_provider_path, notice: 'Provider was successfully created.' }
         format.json { render :show, status: :created, location: @provider }
       else
         format.html { render :new }

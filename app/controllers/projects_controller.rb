@@ -27,6 +27,10 @@ class ProjectsController < ApplicationController
   def edit
      options_for_select
   end
+  def confirm
+    render layout: false
+    
+  end
 
   # POST /projects
   # POST /projects.json
@@ -40,6 +44,7 @@ class ProjectsController < ApplicationController
         @project.update(category_id: @subcat.category_id)
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @project.errors, status: :unprocessable_entity }

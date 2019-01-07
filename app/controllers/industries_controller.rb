@@ -36,7 +36,7 @@ class IndustriesController < ApplicationController
           profile = Profile.find(current_user.profile.id)
           profile.update(profileable_id: @industry.id)
 
-        format.html { redirect_to @industry, notice: 'Industry was successfully created.' }
+        format.html { redirect_to dashboard_industry_path, notice: 'Industry was successfully created.' }
         format.json { render :show, status: :created, location: @industry }
       else
         format.html { render :new }

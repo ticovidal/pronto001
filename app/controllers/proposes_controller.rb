@@ -15,6 +15,7 @@ class ProposesController < ApplicationController
   # GET /proposes/new
   def new
     @propose = Propose.new
+    render layout: false
   end
 
   # GET /proposes/1/edit
