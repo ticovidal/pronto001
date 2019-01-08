@@ -39,7 +39,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-collapse collapse navbar-responsive-collapse pull-right">
           <ul class="nav navbar-nav">
-
+            
             <% if user_signed_in? %>
               <% if current_user.status == 'industry' %>
                 <li><%= link_to "Dashboard", dashboard_industry_path %></li>
@@ -50,7 +50,7 @@
                 <li><%= link_to "Conta", '#' %></li>
                 <li><%= link_to "Ajuda", '#' %></li>
                 <li>
-                  <%= link_to "Publicar", new_project_path, class: 'btn btn-primary modal-btn', data: { toggle: 'modal', target:'#modal'} %>
+                  <li><button type="button" id="btnProject" class="btn btn-primary modal-btn" data-toggle="modal" data-target="#modal">Publicar</button></li>
                 </li>
                 <li><%= link_to current_user.email, destroy_user_session_path, method: :get %></li>
               <% elsif current_user.status == 'provider' %>
@@ -85,13 +85,25 @@
         <div class="col-md-12">
           <%= bootstrap_flash %>
           <%= yield %>
-          <%= modal_dialog id: "modal",
-         header: { :show_close => false},
-         body:   raw('<img style="margin-left:50%; position: relative; left:-110px;" src="/ajax-loader.gif" />')
-         
-%>
+          
         </div>
       </div><!--/row-->
+      <!-- Modal -->
+  <div class="modal fade" id="modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+          <img style="margin-left:50%; position: relative; left:-110px;" src="/ajax-loader.gif" />
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
 
       <footer>
         <p>&copy; Company 2018</p>
@@ -101,6 +113,7 @@
 
   </body>
   <script type="text/javascript">
+  $("#btnProject").click(function() {$("#modal .modal-body").load("/projects/new");});
   $('.alert').delay(1000).fadeOut(1500, function(){ $(this).remove();});
   </script>
 </html>
