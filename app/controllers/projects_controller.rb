@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
    industry
-
+   session[:passed_variable] = @project.id
   end
 
   # GET /projects/new

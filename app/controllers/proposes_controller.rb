@@ -21,16 +21,23 @@ class ProposesController < ApplicationController
   # GET /proposes/1/edit
   def edit
   end
+  def confirm
+    render layout: false
+    
+  end
 
   # POST /proposes
   # POST /proposes.json
   def create
     @propose = Propose.new(propose_params)
-
+    
     respond_to do |format|
       if @propose.save
+        @get_value = session[:passed_variable]
+        @propose.update(project_id: @get_value)
         format.html { redirect_to @propose, notice: 'Propose was successfully created.' }
         format.json { render :show, status: :created, location: @propose }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @propose.errors, status: :unprocessable_entity }

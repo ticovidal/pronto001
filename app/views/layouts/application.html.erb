@@ -50,7 +50,7 @@
                 <li><%= link_to "Conta", '#' %></li>
                 <li><%= link_to "Ajuda", '#' %></li>
                 <li>
-                  <li><button type="button" id="btnProject" class="btn btn-primary modal-btn" data-toggle="modal" data-target="#modal">Publicar</button></li>
+                  <li><button type="button" id="btnPropose" class="btn btn-primary modal-btn" data-toggle="modal" data-target="#modal">Publicar</button></li>
                 </li>
                 <li><%= link_to current_user.email, destroy_user_session_path, method: :get %></li>
               <% elsif current_user.status == 'provider' %>
@@ -114,6 +114,7 @@
   </body>
   <script type="text/javascript">
   $("#btnProject").click(function() {$("#modal .modal-body").load("/projects/new");});
+  $("#btnPropose").click(function() {$("#modal .modal-body").load("/proposes/new");});
   $('.alert').delay(1000).fadeOut(1500, function(){ $(this).remove();});
   </script>
 </html>

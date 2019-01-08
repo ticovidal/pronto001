@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   resources :providerprofiles
   resources :industryprofiles
   resources :profiles
-  get 'confirm' => 'projects#confirm'
+  get 'confirm-project' => 'projects#confirm'
+  get 'confirm-propose' => 'proposes#confirm'
   devise_for :users
   root to: "home#index"
   get 'home/index'
