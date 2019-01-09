@@ -60,6 +60,7 @@
      <% else %>
        <% @label = "Editar" %>
      <% end %>
+     <%= if @projectp %>
          <button type="button" id="btnPropose" class="btn btn-primary modal-btn btn-lateral col-md-4 col-sm-12" data-toggle="modal" data-target="#modal"><%= @label %></button>
    
        <%= link_to "Proposta", propose_path, class: 'btn btn-primary modal-btn btn-lateral col-md-4 col-sm-12', style:'margin-top:0px;', data: { toggle: 'modal', target:'#modal'} %>
