@@ -55,12 +55,12 @@
    <% if current_user.status == "industry" %>
      <a href="#" class="btn btn-primary btn-lateral col-md-6 col-sm-12">finalizar projeto</a>
    <% elsif current_user.status == "provider" %>
-     <% if @projectp == nil %>
+     <% if @projectp == true %>
          <button type="button" id="btnPropose" class="btn btn-primary modal-btn btn-lateral col-md-4 col-sm-12" data-toggle="modal" data-target="#modal">Proposta</button>
      <% else %>
          <button type="button" id="btnEditPropose" class="btn btn-primary modal-btn btn-lateral col-md-4 col-sm-12" data-toggle="modal" data-target="#modal">Editar</button>
          <% @projectp.each do |p| %>
-         <%= p.name %>
+         <%= p.id %>
          <% end %>
      <% end %>
    
