@@ -14,9 +14,9 @@ class ProposesController < ApplicationController
 
   # GET /proposes/new
   def new
-    @projectp = Propose.where(project_id:session[:passed_variable]).where(provider_id: current_user.profile.profileable_id)
-    if @projectp != nil
-       redirect_to edit_propose_path(@projectp)
+    @projectp = Propose.where(project_id:session[:passed_variable]).exists?(provider_id: current_user.profile.profileable_id)
+    if @projectp == true
+       redirect_to reject_propose_path
      else
       @propose = Propose.new
       render layout: false
