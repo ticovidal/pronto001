@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :profiles
   get 'confirm-project' => 'projects#confirm'
   get 'confirm-propose' => 'proposes#confirm'
+  get 'reject-propose' => 'proposes#reject'
   devise_for :users
   root to: "home#index"
   get 'home/index'

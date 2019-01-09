@@ -14,12 +14,22 @@ class ProposesController < ApplicationController
 
   # GET /proposes/new
   def new
-    @propose = Propose.new
-    render layout: false
+    @projectp = Propose.where(project_id:session[:passed_variable]).where(provider_id: current_user.profile.profileable_id)
+    if @projectp != nil
+       redirect_to edit_propose_path(@projectp)
+     else
+      @propose = Propose.new
+      render layout: false
+     end
   end
 
   # GET /proposes/1/edit
   def edit
+    render layout: false
+  end
+  def confirm
+    render layout: false
+    
   end
   def confirm
     render layout: false

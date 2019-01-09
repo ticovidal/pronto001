@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   def show
    industry
    session[:passed_variable] = @project.id
+    @projectp = Propose.where(project_id:session[:passed_variable]).where(provider_id: current_user.profile.profileable_id)
   end
 
   # GET /projects/new
