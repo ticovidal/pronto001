@@ -41,7 +41,9 @@
 			c7.69,0,14.528-4.321,17.42-11.011c0.658-1.521,2.424-2.222,3.944-1.563S76.675,62.548,76.017,64.068z"/>
 			</svg>
 			</span>
-			<h2><%= @projectsend1 %>  -  <%= @projectsend2 %>  -  <% if @projectsend3.visibility %>true<% else %>false<% end %></h2>
+			<h2><%= @projectsend1 %>  -  <%= @projectsend2 %>  -  <% if @projectsend3.visibility %>true<% else %>false<% end %><br/>
+			<% @projects.each do |p| %><% if p.visibility %>true<% else %>false<% end %><% end %>
+			</h2>
 			<p>Projetos concluídos</p>
 		</div>
 		<div>
