@@ -16,7 +16,7 @@ class ProposesController < ApplicationController
   def new
     @projectp = Propose.where(project_id:session[:passed_variable]).exists?(provider_id: current_user.profile.profileable_id)
     if @projectp == true
-       @projectp = Propose.where(project_id:session[:passed_variable]).find(provider_id: current_user.profile.profileable_id)
+       @projectp = Propose.where(project_id:session[:passed_variable]).where(provider_id: current_user.profile.profileable_id).first
        redirect_to edit_propose_path(@projectp.id)
      else
       @propose = Propose.new
