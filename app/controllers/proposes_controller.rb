@@ -63,6 +63,7 @@ class ProposesController < ApplicationController
       if @propose.update(propose_params)
         format.html { redirect_to @propose, notice: 'Propose was successfully updated.' }
         format.json { render :show, status: :ok, location: @propose }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @propose.errors, status: :unprocessable_entity }
