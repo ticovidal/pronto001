@@ -43,7 +43,7 @@
 			</span>
 			<h2>
 
-			<%= @projectsend1 %>  -  <%= @projectsend2 %>  -  <%= @projectsend3 %><br/>
+			<%= @projectsend1 %>
 			
 
 			</h2>
@@ -68,7 +68,17 @@
 			</svg>
 			</aside>
 		</div>
-		<div class="div-last"><h3>Meus Projetos</h3>
-				<hr/>
-		</div>
-<section>
+		<div class="div-last"><h3 class="col-sm-12">Meus Projetos</h3>
+		<section class="col-sm-12 box-in" style="border:0px">
+    <% if @projects != nil %><% @projects.each do |project| %>
+      <section class="col-sm-12" style="padding: 25px 0px; border-bottom: 1px solid grey;">
+        <h2><%= project.name %></h2>
+        <%= project.description %><br/>
+        <%= link_to "Saiba mais", project_path(project), class:'pull-right btn btn-primary', style:"width:auto; margin:auto;" %>
+      
+      </section>
+    <% end %><% end %>
+      </section>
+      </div>
+  </section>
+		
