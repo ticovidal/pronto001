@@ -75,7 +75,12 @@
 <% if current_user.status == "industry" %>
   <section class="col-md-12 col-lg-12">
    <% @project.proposes.each do |p|%>
-     <%= p.profile.id %>
+     <% @prov = p.provider_id %>
+     <% @provider = Provider.find(@prov) %>
+     <%= @provider.enterprise.company %> - <%= link_to "Ver perfil", "#" %><br/>
+     <%= p.description %><br/>
+     <%= link_to "Aceitar", "#" %>
+     <hr/>
    <% end %>
   </section>
 <% end %>

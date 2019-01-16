@@ -10,7 +10,6 @@ class ProvidersController < ApplicationController
   # GET /providers/1
   # GET /providers/1.json
   def show
-    redirect_to profile_path(@provider.profile.id)
   end
 
   # GET /providers/new
@@ -82,6 +81,6 @@ class ProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(subcategory_ids: [], profile_attributes:[:id], enterprise_attributes:[:id, :company, :social, :cnpj, :enterpriseable_id, :enterpriseable_type])
+      params.require(:provider).permit(subcategory_ids: [], profile_attributes:[:id], profileable_attributes:[:id], enterprise_attributes:[:id, :company, :social, :cnpj, :enterpriseable_id, :enterpriseable_type])
     end
 end
