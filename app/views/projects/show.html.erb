@@ -75,7 +75,7 @@
 <% if current_user.status == "industry" %>
   <section class="col-md-12 col-lg-12">
    <% @project.proposes.each do |p|%>
-     <%= p.enterprise.social %>
+     <%= p.profile.id %>
    <% end %>
   </section>
 <% end %>
