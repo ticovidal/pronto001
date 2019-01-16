@@ -72,6 +72,13 @@
 
 
 </section>
+<% if current_user.status == "industry" %>
+  <section class="col-md-12 col-lg-12">
+   <% @project.proposes.each do |p|%>
+     <%= p.enterprise.social %>
+   <% end %>
+  </section>
+<% end %>
   <!--<div class="form-group">
     <%= link_to t('.back', default: t("helpers.links.back")),
                 projects_path, class: 'btn btn-default'  %>
