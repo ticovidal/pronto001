@@ -1,0 +1,7 @@
+<% 
+      
+      @project = Project.find(@propose.project_id)
+      @propose.update(payment: @propose.value)
+      @propose.update(status: "approved")
+      @project.update(approvedpropose: @propose.id)
+      @project.update(status: "approved") %>

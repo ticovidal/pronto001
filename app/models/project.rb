@@ -4,4 +4,5 @@ class Project < ApplicationRecord
   belongs_to :category, optional: true
   belongs_to :subcategory, optional: true
   belongs_to :industry, optional: true
+  enum status: [:waiting, :approved, :finished, :rejected]
 end

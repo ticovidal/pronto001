@@ -76,10 +76,15 @@
   <section class="col-md-12 col-lg-12">
    <% @project.proposes.each do |p|%>
      <% @prov = p.provider_id %>
-     <% @provider = Provider.find(@prov) %>
-     <%= @provider.enterprise.company %> - <%= link_to "Ver perfil", "#" %><br/>
+     <% @provprof = @allprofile.detect{|w| w.id == @prov} %>
+     <% @provider = @allprovider.detect{|w| w.id == @prov} %>
+     <%= @provider.enterprise.company %> - <%= link_to "Ver perfil", profile_path(@provprof.id) %><br/>
      <%= p.description %><br/>
-     <%= link_to "Aceitar", "#" %>
+     <% if p.status == "approved" %>
+       ACEITO
+     <% else %>
+       <%= link_to "Aceitar", approved_propose_path(id: p.id) %>
+     <% end %>
      <hr/>
    <% end %>
   </section>

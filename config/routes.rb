@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'confirm-project' => 'projects#confirm'
   get 'confirm-propose' => 'proposes#confirm'
   get 'reject-propose' => 'proposes#reject'
+   get 'approved-propose' => 'proposes#approved'
   devise_for :users
   root to: "home#index"
   get 'home/index'

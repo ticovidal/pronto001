@@ -1,5 +1,5 @@
 class ProposesController < ApplicationController
-  before_action :set_propose, only: [:show, :edit, :update, :destroy]
+  before_action :set_propose, only: [:show, :edit, :update, :destroy, :approved]
 
   # GET /proposes
   # GET /proposes.json
@@ -32,8 +32,18 @@ class ProposesController < ApplicationController
     render layout: false
     
   end
-  def confirm
+  def reject
     render layout: false
+    
+  end
+  def approved
+    render layout: false
+    @project = Project.find(@propose.project_id)
+      @propose.update(payment: @propose.value)
+      @propose.update(status: "approved")
+      @project.update(approvedpropose: @propose.id)
+      @project.update(status: "approved")
+
     
   end
 
@@ -89,6 +99,6 @@ class ProposesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def propose_params
-      params.require(:propose).permit(:description, :value, :provider_id, :project_id)
+      params.require(:propose).permit(:status, :payment, :description, :value, :provider_id, :project_id)
     end
 end
