@@ -74,15 +74,15 @@
 </section>
 <% if current_user.status == "industry" %>
   <section class="col-md-12 col-lg-12 box-propose">
-   <h3>Propostas</h3>
+   <h4>Propostas</h4>
    <% @project.proposes.each do |p|%>
      <% @prov = p.provider_id %>
      <% @provprof = @allprofile.detect{|w| w.id == @prov} %>
      <% @provider = @allprovider.detect{|w| w.id == @prov} %>
-     <%= @provider.enterprise.company %> - <%= link_to "Ver perfil", profile_path(@provprof.id) %><br/>
+     <div></div><strong><%= @provider.enterprise.company %></strong> - <%= link_to "Ver perfil", profile_path(@provprof.id) %><br/>
      <%= p.description %><br/>
      <% if p.status == "approved" %>
-       ACEITO
+       <span>Aceito<span>
      <% else %>
        <%= link_to "Aceitar", approved_propose_path(id: p.id) %>
      <% end %>
