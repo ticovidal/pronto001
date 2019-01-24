@@ -39,10 +39,14 @@ class ProposesController < ApplicationController
   def approved
     render layout: false
     @project = Project.find(@propose.project_id)
-      @propose.update(payment: @propose.value)
-      @propose.update(status: "approved")
-      @project.update(approvedpropose: @propose.id)
-      @project.update(status: "approved")
+    @proposes = Propose.where(project_id: @project)
+    @proposes.each do |p|
+      p.update(status: "rejected")
+    end
+    @propose.update(payment: @propose.value)
+    @propose.update(status: "approved")
+    @project.update(approvedpropose: @propose.id)
+    @project.update(status: "approved")
 
     
   end

@@ -73,7 +73,8 @@
 
 </section>
 <% if current_user.status == "industry" %>
-  <section class="col-md-12 col-lg-12">
+  <section class="col-md-12 col-lg-12 box-propose">
+   <h3>Propostas</h3>
    <% @project.proposes.each do |p|%>
      <% @prov = p.provider_id %>
      <% @provprof = @allprofile.detect{|w| w.id == @prov} %>

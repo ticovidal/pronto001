@@ -188,7 +188,7 @@ font-weight:800; font-size:18px !important;
     }
   .alert{position:absolute; width:100%}
 .box-in{
-   border: 1px solid #aaaaaa;
+  border: 1px solid #aaaaaa;
   background: white;
   border-radius: 1px;
   font-size: 15px;
@@ -211,4 +211,15 @@ font-weight:800; font-size:18px !important;
   font-weight:510;
   font-size:40px;
   margin:0px;
+}
+.box-propose{
+  border: 1px solid #aaaaaa;
+  background: white;
+  border-radius: 1px;
+  font-size: 15px;
+  text-align: justify;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+  padding:15px 25px;
 }
