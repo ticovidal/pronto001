@@ -61,7 +61,6 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
-gem 'rails_12factor', group: :production
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
