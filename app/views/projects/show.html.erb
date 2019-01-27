@@ -74,7 +74,7 @@
 </section>
 <% if current_user.status == "industry" %>
   <section class="col-md-12 col-lg-12">
-   <div>
+   <div class="col-md-12 col-lg-12 box-propose">
    <h4>Propostas</h4>
    <% @project.proposes.each do |p|%>
      <% @prov = p.provider_id %>
