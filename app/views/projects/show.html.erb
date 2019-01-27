@@ -73,7 +73,8 @@
 
 </section>
 <% if current_user.status == "industry" %>
-  <section class="col-md-12 col-lg-12 box-propose">
+  <section class="col-md-12 col-lg-12">
+   <div>
    <h4>Propostas</h4>
    <% @project.proposes.each do |p|%>
      <% @prov = p.provider_id %>
@@ -88,6 +89,7 @@
      <% end %>
      <hr/>
    <% end %>
+   </div>
   </section>
 <% end %>
   <!--<div class="form-group">
