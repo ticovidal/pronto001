@@ -89,7 +89,7 @@
      <% if p.status == "approved" %>
        <span>Aceito<span>
      <% else %>
-       <%= link_to "Aceitar", approved_propose_path(id: p.id) %>
+       <%= link_to "Aceitar", approved_propose_path(id: p.id), class:"btn btn-primary btn-lateral" %>
      <% end %>
      </aside>
    <% end %>
