@@ -75,7 +75,7 @@
 <% if current_user.status == "industry" %>
   <section class="col-md-12 col-lg-12" style="padding-top:20px;">
    <div class="col-md-12 col-lg-12 box-propose">
-   <div class="box-in"><h2>Propostas</h2></div>
+   <section class="box-in"><h2>Propostas</h2></section>
    <% @project.proposes.each do |p|%>
      <% @prov = p.provider_id %>
      <% @provprof = @allprofile.detect{|w| w.id == @prov} %>
