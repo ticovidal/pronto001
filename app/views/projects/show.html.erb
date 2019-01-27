@@ -83,7 +83,7 @@
      <aside class="col-md-6"><div></div><strong><%= @provider.enterprise.company %></strong> - <%= link_to "Ver perfil", profile_path(@provprof.id) %><br/>
      <%= p.description %></aside>
      <aside class="col-md-4" style="text-align:center">
-      p.value
+     <%= p.value %>
      </aside>
      <aside class="col-md-2">
      <% if p.status == "approved" %>
