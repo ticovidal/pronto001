@@ -82,14 +82,14 @@
      <% @provider = @allprovider.detect{|w| w.id == @prov} %>
      <aside class="col-md-6"><div></div><strong><%= @provider.enterprise.company %></strong> - <%= link_to "Ver perfil", profile_path(@provprof.id) %><br/>
      <%= p.description %></aside>
-     <aside class="col-md-3" style="text-align:center">
+     <aside class="col-md-4" style="text-align:center">
       p.value
      </aside>
-     <aside class="col-md-3">
+     <aside class="col-md-2">
      <% if p.status == "approved" %>
        <span>Aceito<span>
      <% else %>
-       <%= link_to "Aceitar", approved_propose_path(id: p.id), class:"btn btn-primary btn-lateral" %>
+       <%= link_to "Aceitar", approved_propose_path(id: p.id), class:"btn btn-primary btn-lateral pull-right" %>
      <% end %>
      </aside>
    <% end %>
