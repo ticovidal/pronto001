@@ -88,7 +88,7 @@
      <aside class="col-md-2">
      <% if p.status == "approved" %>
        <span>Aceito<span>
-     <% else %>
+     <% elsif p.status == "reject" %>
        <%= link_to "Aceitar", approved_propose_path(id: p.id), class:"btn btn-primary pull-right" %>
      <% end %>
      </aside>
