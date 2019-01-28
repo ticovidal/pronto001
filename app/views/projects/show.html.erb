@@ -89,7 +89,7 @@
      <% if p.status == "approved" %>
        <span>Aceito<span>
      <% elsif p.status == "waiting" %>
-       <%= link_to "Aceitar", approved_propose_path(id: p.id), class:"btn btn-primary pull-right" %>
+       <%= link_to "Aceitar", approved_propose_path(id: p.id), class:"btn btn-primary pull-right btn-approved" %>
      <% end %>
      </aside>
     <aside class="col-sm-12" style="display:block; border-bottom:1px solid grey; margin-top:0px; margin-bottom:50px;"></aside>

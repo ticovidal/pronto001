@@ -22,6 +22,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @project.build_chat
     options_for_select
     render layout: false
   end
@@ -39,9 +40,10 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-
     respond_to do |format|
       if @project.save
+        @chat = Chat.new(project_id: @project.id)
+        @chat.save
         @project.update(industry_id: current_user.profile.profileable_id)
         @subcat = Subcategory.find(@project.subcategory_id) 
         @project.update(category_id: @subcat.category_id)
@@ -107,6 +109,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:approvedpropose, :status, :name, :description, :end, :subcategory_id, :category_id, :dependency_id, :has_dependency, :industry_id, :visibility, :mincost, :maxcost, proposes_attributes:[:id, :description, :value, :provider_id, :project_id])
+      params.require(:project).permit(:approvedpropose, :status, :name, :description, :end, :subcategory_id, :category_id, :dependency_id, :has_dependency, :industry_id, :visibility, :mincost, :maxcost, proposes_attributes:[:id, :description, :value, :provider_id, :project_id], dialogs_attributes:[:id, :message, :chat_id, :propose_id, :project_id], chat_attributes:[:id, :project_id])
     end
 end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @dialog.message %>
+</p>
+
+<p>
+  <strong>Chat:</strong>
+  <%= @dialog.chat %>
+</p>
+
+<%= link_to 'Edit', edit_dialog_path(@dialog) %> |
+<%= link_to 'Back', dialogs_path %>

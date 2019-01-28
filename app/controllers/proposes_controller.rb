@@ -48,6 +48,8 @@ class ProposesController < ApplicationController
     @project.update(approvedpropose: @propose.id)
     @project.update(status: "approved")
 
+      
+
     
   end
 
@@ -103,6 +105,6 @@ class ProposesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def propose_params
-      params.require(:propose).permit(:status, :payment, :description, :value, :provider_id, :project_id)
+      params.require(:propose).permit(:status, :payment, :description, :value, :provider_id, :project_id, dialogs_attributes:[:id, :message, :chat_id, :propose_id, :project_id])
     end
 end

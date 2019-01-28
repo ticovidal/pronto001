@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :dialogs
+  resources :chats
   resources :indcategories
   resources :indcats
   resources :enterprises

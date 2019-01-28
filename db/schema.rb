@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_022259) do
+ActiveRecord::Schema.define(version: 2019_01_28_014401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,25 @@ ActiveRecord::Schema.define(version: 2019_01_22_022259) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_chats_on_project_id"
+  end
+
+  create_table "dialogs", force: :cascade do |t|
+    t.text "message"
+    t.bigint "chat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "propose_id"
+    t.bigint "project_id"
+    t.index ["chat_id"], name: "index_dialogs_on_chat_id"
+    t.index ["project_id"], name: "index_dialogs_on_project_id"
+    t.index ["propose_id"], name: "index_dialogs_on_propose_id"
   end
 
   create_table "enterprises", force: :cascade do |t|
@@ -215,6 +234,10 @@ ActiveRecord::Schema.define(version: 2019_01_22_022259) do
   end
 
   add_foreign_key "adresses", "profiles"
+  add_foreign_key "chats", "projects"
+  add_foreign_key "dialogs", "chats"
+  add_foreign_key "dialogs", "projects"
+  add_foreign_key "dialogs", "proposes"
   add_foreign_key "ind_categorizations", "categories", column: "categories_id"
   add_foreign_key "ind_categorizations", "industries", column: "industries_id"
   add_foreign_key "indcats", "categories"
