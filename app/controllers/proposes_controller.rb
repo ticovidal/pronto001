@@ -62,6 +62,11 @@ class ProposesController < ApplicationController
       if @propose.save
         @get_value = session[:passed_variable]
         @propose.update(project_id: @get_value)
+        @project = Project.find(@propose.project_id)
+        @dialog = Dialog.new(profile_id: current_user.profile.id, propose_id: @propose.id, project_id: @propose.project_id, chat_id: @project.chat.id)
+        @dialog.save
+        @speech = Speech.new(profile_id: current_user.profile.id, propose_id: @propose.id, project_id: @propose.project_id, dialog_id: @dialog.id, message: "Olá! Acabo de enviar uma proposta")
+        @speech.save
         format.html { redirect_to @propose, notice: 'Propose was successfully created.' }
         format.json { render :show, status: :created, location: @propose }
         format.js
@@ -105,6 +110,6 @@ class ProposesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def propose_params
-      params.require(:propose).permit(:status, :payment, :description, :value, :provider_id, :project_id, dialogs_attributes:[:id, :message, :chat_id, :propose_id, :project_id])
+      params.require(:propose).permit(:status, :payment, :description, :value, :provider_id, :project_id, dialog_attributes:[:id, :message, :chat_id, :propose_id, :project_id])
     end
 end

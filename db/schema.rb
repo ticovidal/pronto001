@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_28_014401) do
+ActiveRecord::Schema.define(version: 2019_01_31_122833) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "hstore"
   enable_extension "plpgsql"
 
   create_table "adresses", force: :cascade do |t|
@@ -51,7 +52,9 @@ ActiveRecord::Schema.define(version: 2019_01_28_014401) do
     t.datetime "updated_at", null: false
     t.bigint "propose_id"
     t.bigint "project_id"
+    t.bigint "profile_id"
     t.index ["chat_id"], name: "index_dialogs_on_chat_id"
+    t.index ["profile_id"], name: "index_dialogs_on_profile_id"
     t.index ["project_id"], name: "index_dialogs_on_project_id"
     t.index ["propose_id"], name: "index_dialogs_on_propose_id"
   end
@@ -192,6 +195,20 @@ ActiveRecord::Schema.define(version: 2019_01_28_014401) do
     t.index ["subcategory_id", "provider_id"], name: "index_providers_subcategories_on_subcategory_id_and_provider_id"
   end
 
+  create_table "speeches", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.bigint "propose_id"
+    t.bigint "project_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "dialog_id"
+    t.index ["dialog_id"], name: "index_speeches_on_dialog_id"
+    t.index ["profile_id"], name: "index_speeches_on_profile_id"
+    t.index ["project_id"], name: "index_speeches_on_project_id"
+    t.index ["propose_id"], name: "index_speeches_on_propose_id"
+  end
+
   create_table "subcategories", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -236,6 +253,7 @@ ActiveRecord::Schema.define(version: 2019_01_28_014401) do
   add_foreign_key "adresses", "profiles"
   add_foreign_key "chats", "projects"
   add_foreign_key "dialogs", "chats"
+  add_foreign_key "dialogs", "profiles"
   add_foreign_key "dialogs", "projects"
   add_foreign_key "dialogs", "proposes"
   add_foreign_key "ind_categorizations", "categories", column: "categories_id"
@@ -254,6 +272,10 @@ ActiveRecord::Schema.define(version: 2019_01_28_014401) do
   add_foreign_key "proposes", "providers"
   add_foreign_key "prov_categorizations", "categories", column: "categories_id"
   add_foreign_key "prov_categorizations", "providers", column: "providers_id"
+  add_foreign_key "speeches", "dialogs"
+  add_foreign_key "speeches", "profiles"
+  add_foreign_key "speeches", "projects"
+  add_foreign_key "speeches", "proposes"
   add_foreign_key "subcategories", "categories"
   add_foreign_key "subcats", "providers"
   add_foreign_key "subcats", "subcategories"

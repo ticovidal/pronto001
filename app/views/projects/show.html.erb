@@ -64,7 +64,11 @@
    
 
    <% end %>
-   <a href="#" class="btn btn-primary btn-lateral col-md-4 col-sm-12 pull-right">mensagem</a>
+   <% if current_user.status == "industry" %>
+     <%= link_to "Mensagem", chat_path(@project.chat.id), class: "btn btn-primary btn-lateral col-md-4 col-sm-12 pull-right" %>
+   <% elsif current_user.status == "provider" %>
+     <%= link_to "Mensagem", dialog_path(@mypropose.dialog.id), class: "btn btn-primary btn-lateral col-md-4 col-sm-12 pull-right" %>
+    <% end %>
    </aside>
 
 

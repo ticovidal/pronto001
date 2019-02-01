@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profile: one
+  propose: one
+  projec: one
+  message: MyText
+
+two:
+  profile: two
+  propose: two
+  projec: two
+  message: MyText

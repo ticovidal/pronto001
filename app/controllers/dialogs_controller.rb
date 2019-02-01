@@ -69,6 +69,6 @@ class DialogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dialog_params
-      params.require(:dialog).permit(:message, :chat_id, :propose_id, :project_id)
+      params.require(:dialog).permit(:message, :chat_id, :propose_id, :project_id, :profile_id)
     end
 end

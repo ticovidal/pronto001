@@ -17,6 +17,9 @@ class ProjectsController < ApplicationController
     @projectp = Propose.where(project_id:session[:passed_variable]).exists?(provider_id: current_user.profile.profileable_id)
     @allprofile = Profile.all
     @allprovider = Provider.all
+    if current_user.status == "provider"
+      @mypropose = Propose.find_by(project_id: @project.id)
+    end
   end
 
   # GET /projects/new
