@@ -1,0 +1,20 @@
+<%= form_for(@dialog) do |form| %>
+  <% if dialog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dialog.errors.count, "error") %> prohibited this dialog from being saved: %></h2>
+
+      <ul>
+      <% dialog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+ <%= link_to_add_association '<button class="btn btn-primary"><i class="fa fa-plus"></i></button>'.html_safe, form, :speeches, :partial => 'speech_fields' %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

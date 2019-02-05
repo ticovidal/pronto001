@@ -10,6 +10,17 @@ class ChatsController < ApplicationController
   # GET /chats/1
   # GET /chats/1.json
   def show
+    @chat_project = Project.find(@chat.project_id)
+    @chat_providers = Provider.joins(:dialogs).where('dialogs.chat_id in (?)', @chat.id)
+    respond_to do |format|
+      
+        format.html 
+        
+        format.js
+    
+    end
+    
+
   end
 
   # GET /chats/new

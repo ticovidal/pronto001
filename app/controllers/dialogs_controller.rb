@@ -10,6 +10,16 @@ class DialogsController < ApplicationController
   # GET /dialogs/1
   # GET /dialogs/1.json
   def show
+    if current_user.status == "industry"
+      render layout: false
+    end
+
+    respond_to do |format|
+
+        format.html
+        format.js
+
+    end
   end
 
   # GET /dialogs/new
@@ -69,6 +79,6 @@ class DialogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dialog_params
-      params.require(:dialog).permit(:message, :chat_id, :propose_id, :project_id, :profile_id)
+      params.require(:dialog).permit(:message, :chat_id, :propose_id, :project_id, :profile_id, speeches_attributes:[:id, :profile_id, :propose_id, :project_id, :dialog_id, :message])
     end
 end

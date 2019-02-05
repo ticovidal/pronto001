@@ -1,9 +1,22 @@
 <p id="notice"><%= notice %></p>
+<h1 class="col-md-12">
+  <strong>Projeto:</strong> <%= @chat_project.name %>
+</h1>
+<section class="">
 
-<p>
-  <strong>Project:</strong>
-  <%= @chat.project_id %>
-</p>
+	<ul class="col-md-3 box-in">
+		<% @chat.dialogs.each do |d| %>
+		<%  
+		    provider = Enterprise.find_by(enterpriseable_id: d.provider_id)
+		%>
+		<li class="" style="list-style-type: none; border-bottm:1px solid grey;">
+		  <%= link_to provider.company, dialog_path(d.id), remote: true %>
+		</li>
+		<% end %>
+	</ul>
+	<aside id="chat" class="col-md-9 box-in">
+	Box de mensagem
+	</aside>
+</section>
 
-<%= link_to 'Edit', edit_chat_path(@chat) %> |
-<%= link_to 'Back', chats_path %>
+

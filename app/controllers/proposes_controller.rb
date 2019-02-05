@@ -63,9 +63,9 @@ class ProposesController < ApplicationController
         @get_value = session[:passed_variable]
         @propose.update(project_id: @get_value)
         @project = Project.find(@propose.project_id)
-        @dialog = Dialog.new(profile_id: current_user.profile.id, propose_id: @propose.id, project_id: @propose.project_id, chat_id: @project.chat.id)
+        @dialog = Dialog.new(provider_id: @propose.provider_id, profile_id: current_user.profile.id, propose_id: @propose.id, project_id: @propose.project_id, chat_id: @project.chat.id)
         @dialog.save
-        @speech = Speech.new(profile_id: current_user.profile.id, propose_id: @propose.id, project_id: @propose.project_id, dialog_id: @dialog.id, message: "Olá! Acabo de enviar uma proposta")
+        @speech = Speech.new(profile_id: current_user.profile.id, propose_id: @propose.id, project_id: @propose.project_id, dialog_id: @dialog.id, message: "Olá! Acabo de enviar uma proposta", status: current_user.status.to_s)
         @speech.save
         format.html { redirect_to @propose, notice: 'Propose was successfully created.' }
         format.json { render :show, status: :created, location: @propose }

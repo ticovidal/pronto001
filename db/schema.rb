@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_122833) do
+ActiveRecord::Schema.define(version: 2019_02_05_020625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -53,10 +53,12 @@ ActiveRecord::Schema.define(version: 2019_01_31_122833) do
     t.bigint "propose_id"
     t.bigint "project_id"
     t.bigint "profile_id"
+    t.bigint "provider_id"
     t.index ["chat_id"], name: "index_dialogs_on_chat_id"
     t.index ["profile_id"], name: "index_dialogs_on_profile_id"
     t.index ["project_id"], name: "index_dialogs_on_project_id"
     t.index ["propose_id"], name: "index_dialogs_on_propose_id"
+    t.index ["provider_id"], name: "index_dialogs_on_provider_id"
   end
 
   create_table "enterprises", force: :cascade do |t|
@@ -203,6 +205,7 @@ ActiveRecord::Schema.define(version: 2019_01_31_122833) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "dialog_id"
+    t.string "status"
     t.index ["dialog_id"], name: "index_speeches_on_dialog_id"
     t.index ["profile_id"], name: "index_speeches_on_profile_id"
     t.index ["project_id"], name: "index_speeches_on_project_id"
@@ -256,6 +259,7 @@ ActiveRecord::Schema.define(version: 2019_01_31_122833) do
   add_foreign_key "dialogs", "profiles"
   add_foreign_key "dialogs", "projects"
   add_foreign_key "dialogs", "proposes"
+  add_foreign_key "dialogs", "providers"
   add_foreign_key "ind_categorizations", "categories", column: "categories_id"
   add_foreign_key "ind_categorizations", "industries", column: "industries_id"
   add_foreign_key "indcats", "categories"

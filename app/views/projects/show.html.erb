@@ -66,7 +66,7 @@
    <% end %>
    <% if current_user.status == "industry" %>
      <%= link_to "Mensagem", chat_path(@project.chat.id), class: "btn btn-primary btn-lateral col-md-4 col-sm-12 pull-right" %>
-   <% elsif current_user.status == "provider" %>
+   <% elsif current_user.status == "provider" and @mypropose %>
      <%= link_to "Mensagem", dialog_path(@mypropose.dialog.id), class: "btn btn-primary btn-lateral col-md-4 col-sm-12 pull-right" %>
     <% end %>
    </aside>

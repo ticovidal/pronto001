@@ -15,6 +15,8 @@ class SpeechesController < ApplicationController
   # GET /speeches/new
   def new
     @speech = Speech.new
+    @dialog = Dialog.find(session[:dialog])
+    render layout: false
   end
 
   # GET /speeches/1/edit
@@ -28,8 +30,7 @@ class SpeechesController < ApplicationController
 
     respond_to do |format|
       if @speech.save
-        format.html { redirect_to @speech, notice: 'Speech was successfully created.' }
-        format.json { render :show, status: :created, location: @speech }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @speech.errors, status: :unprocessable_entity }
@@ -69,6 +70,6 @@ class SpeechesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def speech_params
-      params.require(:speech).permit(:profile_id, :propose_id, :project_id, :dialog_id, :message)
+      params.require(:speech).permit(:profile_id, :propose_id, :project_id, :dialog_id, :message, :status)
     end
 end
