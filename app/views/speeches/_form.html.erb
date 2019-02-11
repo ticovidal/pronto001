@@ -1,4 +1,4 @@
-<%= form_for @speech, remote: true do |form| %>
+<%= form_for @speech, id: "chatsend", remote: true do |form| %>
   <% if speech.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(speech.errors.count, "error") %> prohibited this speech from being saved:</h2>
@@ -22,11 +22,19 @@
 
     <%= form.hidden_field :status, value: current_user.status.to_s %>
 
-    <%= form.text_area :message %>
+    <%= form.text_area :message, id:"chatbox" %>
   </div>
 
   <div class="actions" id="submitSpeech">
     <%= form.submit %>
   </div>
 <% end %>
+<script>
+$('#chatbox').keypress(function (e) {
+  if (e.which == 13) {
+    $('#chatsend').submit();
+    return false;    
+  }
+});
+</script>
 
