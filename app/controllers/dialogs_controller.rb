@@ -1,6 +1,7 @@
 class DialogsController < ApplicationController
   before_action :set_dialog, only: [:show, :edit, :update, :destroy]
-
+  def speeches
+  end
   # GET /dialogs
   # GET /dialogs.json
   def index
