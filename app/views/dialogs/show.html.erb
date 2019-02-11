@@ -1,17 +1,25 @@
+<% @lastspeech = 0 %>
 <p id="notice"><%= notice %></p>
 <style><%= ".style_#{current_user.profile.id}" %>{float: right !important; text-align:right !important;}</style>
-
 <aside id="showSpeech">
+<% every 3.second do %>
+  <% @dialognow = Dialog.find(@dialog.id) %>
   <% @dialog.speeches.each do |s| %>
     <p class="col-sm-10 style_<%= s.profile_id %>">
       <%= s.message %>
+      <% @lastspeech = s.id %>
     </p>
   <% end %>
+<% end %>  
+  
 </aside>
+
       <% session[:dialog] = @dialog.id %>
 
 <div id="speechMessage"></div>
-<script type="text/javascript">$("#speechMessage").load("<%= new_speech_path() %>");</script>
+<script type="text/javascript">
+ $("#speechMessage").load("<%= new_speech_path() %>");
+</script>
 
 
 
