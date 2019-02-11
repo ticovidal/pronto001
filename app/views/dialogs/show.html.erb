@@ -12,7 +12,8 @@
 <div id="speechMessage"></div>
 <script type="text/javascript">
   $("#speechMessage").load("<%= new_speech_path() %>");
-  $("#showSpeech").load("/dialogs-speeches");
+  setInterval(function(){ $("#showSpeech").load("/dialogs-speeches"); }, 3000);
+  
 </script>
 
 
