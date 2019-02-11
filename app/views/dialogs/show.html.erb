@@ -4,12 +4,15 @@
 <aside id="showSpeech">
   
 </aside>
+
+
       <% session[:dialog] = @dialog.id %>
+
 
 <div id="speechMessage"></div>
 <script type="text/javascript">
   $("#speechMessage").load("<%= new_speech_path() %>");
-  $("#showSpeech").load("<%= dialogs_speeches_url %>");
+  $("#showSpeech").load("<%= dialogs-speeches %>");
 </script>
 
 
