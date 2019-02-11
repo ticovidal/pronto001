@@ -2,16 +2,15 @@
 <style><%= ".style_#{current_user.profile.id}" %>{float: right !important; text-align:right !important;}</style>
 
 <aside id="showSpeech">
-  <% @dialog.speeches.each do |s| %>
-    <p class="col-sm-10 style_<%= s.profile_id %>">
-      <%= s.message %>
-    </p>
-  <% end %>
+  
 </aside>
       <% session[:dialog] = @dialog.id %>
 
 <div id="speechMessage"></div>
-<script type="text/javascript">$("#speechMessage").load("<%= new_speech_path() %>");</script>
+<script type="text/javascript">
+  $("#speechMessage").load("<%= new_speech_path() %>");
+  $("#showSpeech").load("<%= j render(partial: 'speeches') %>");
+</script>
 
 
 
