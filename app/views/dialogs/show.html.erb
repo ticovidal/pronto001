@@ -12,7 +12,7 @@
 <div id="speechMessage"></div>
 <script type="text/javascript">
   $("#speechMessage").load("<%= new_speech_path() %>");
-  $("#showSpeech").load("<%= dialogs-speeches(dialog: @dialog) %>");
+  $("#showSpeech").load("<%= dialogs-speeches() %>");
 </script>
 
 
