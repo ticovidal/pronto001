@@ -2,7 +2,6 @@ class DialogsController < ApplicationController
   before_action :set_dialog, only: [:show, :edit, :update, :destroy]
   def speeches
     render layout: false
-    @dialog = Dialog.find(session[:dialog])
   end
   # GET /dialogs
   # GET /dialogs.json
