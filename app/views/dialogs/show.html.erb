@@ -9,7 +9,7 @@
 <div id="speechMessage"></div>
 <script type="text/javascript">
   $("#speechMessage").load("<%= new_speech_path() %>");
-  $("#showSpeech").load("<%= j render(partial: 'speeches') %>")
+  $("#showSpeech").load("<%= render 'speeches' %>")
 </script>
 
 
