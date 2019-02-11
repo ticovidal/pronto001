@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 <style><%= ".style_#{current_user.profile.id}" %>{float: right !important; text-align:right !important;}</style>
 
+      <% session[:dialog] = @dialog.id %>
 <aside id="showSpeech">
   
 </aside>
 
 
-      <% session[:dialog] = @dialog.id %>
 
 
 <div id="speechMessage"></div>
 <script type="text/javascript">
   $("#speechMessage").load("<%= new_speech_path() %>");
-  $("#showSpeech").load("<%= dialogs-speeches %>");
+  $("#showSpeech").load("<%= dialogs-speeches(dialog: @dialog) %>");
 </script>
 
 
