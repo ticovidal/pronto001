@@ -19,7 +19,8 @@ class DialogsController < ApplicationController
     if current_user.status == "industry"
       render layout: false
     end
-    session[:lastspeeches] = @dialog.speeches.count
+    @laspeeches = @dialog.speeches
+    session[:lastspeeches] = @laspeeches.count
     respond_to do |format|
 
         format.html
