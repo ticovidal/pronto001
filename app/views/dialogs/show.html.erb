@@ -3,7 +3,7 @@
 
       <% session[:dialog] = @dialog.id %>
 <aside id="showSpeech">
-  <% @mydialog.speeches.each do |s| %>
+  <% @dialog.speeches.each do |s| %>
     <p class="col-sm-10 style_<%= s.profile_id %>">
       <%= s.message %>
     </p>
