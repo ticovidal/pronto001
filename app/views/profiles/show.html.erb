@@ -11,7 +11,7 @@
 <div class="col-md-7">
 </div>
 
-
+<section class="col-md-12">
 <%= form_for @profile, html: { class: 'form-horizontal col-md-8 col-md-offset-2' } do |f| %>
 <% if request.path == new_profile_path %>
 <h1>Cadastre-se como <%= current_user.status %></h1>
@@ -61,7 +61,7 @@
     </div>
   </div>
   <% end %>
-
+</section>
 
 
 
