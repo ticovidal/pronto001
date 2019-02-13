@@ -17,7 +17,7 @@ class DialogsController < ApplicationController
     if current_user.status == "industry"
       render layout: false
     end
-    
+
     respond_to do |format|
 
         format.html
