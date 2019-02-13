@@ -1,10 +1,8 @@
 class DialogsController < ApplicationController
   before_action :set_dialog, only: [:show, :edit, :update, :destroy]
   def speeches
-    @actualdialog = Dialog.find(session[:dialog_id]) 
-    @actualspeeches = @actualdialog.speeches
-    @counter = @actualspeeches.count - session[:lastspeeches]
-    @newspeeches = @actualspeeches.last(@counter)
+    @mydialog = Dialog.find(session[:dialog]) 
+    @count_dialogs = @mydialog.count
     render layout: false
   end
   # GET /dialogs
@@ -19,8 +17,7 @@ class DialogsController < ApplicationController
     if current_user.status == "industry"
       render layout: false
     end
-    session[:dialog_id] = @dialog.id
-    session[:lastspeeches] = @dialog.speeches.count
+    
     respond_to do |format|
 
         format.html
