@@ -9,14 +9,16 @@
     </p>
   <% end %>
 </aside>
-
+<span></span>
 
 
 
 <div id="speechMessage"></div>
 <script type="text/javascript">
   $("#speechMessage").load("<%= new_speech_path() %>");
-  setInterval(function(){ $("#showSpeech").load("/dialogs-speeches"); }, 500);
+  setInterval(function(){ 
+  	$( "span" ).load("/dialogs-speeches").appendTo( "#showSpeech" );
+  	 }, 500);
   
 </script>
 
