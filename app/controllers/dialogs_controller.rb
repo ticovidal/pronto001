@@ -2,7 +2,7 @@ class DialogsController < ApplicationController
   before_action :set_dialog, only: [:show, :edit, :update, :destroy]
   def speeches
     @mydialog = Dialog.find(session[:dialog]) 
-    
+    @newspeeches = @mydialog.speeches
     render layout: false
   end
   # GET /dialogs
