@@ -10,6 +10,14 @@
 <div>
 <div class="col-md-7">
 </div>
+
+
+<%= form_for @profile, html: { class: 'form-horizontal col-md-8 col-md-offset-2' } do |f| %>
+<% if request.path == new_profile_path %>
+<h1>Cadastre-se como <%= current_user.status %></h1>
+<h4>Etapa 1 de 3</h4>
+<h3 class="headlogin">Dados do responsável</h3>
+<% end %>
 <section class="col-sm-12 col-md-6">
   <div class="form-group">
     <%= f.label :name, class: 'control-label' %>
@@ -45,6 +53,19 @@
     </div>
   </div>
 </section>
+
+
+  <div class="form-group">
+    <div class='col-md-offset-3 col-md-6'>
+      <%= f.submit nil, class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <% end %>
+
+
+
+
+
 <div class="fieldset">
   <dl>
       <dt class="label label-default"><%= model_class.human_attribute_name(:id) %></dt>
