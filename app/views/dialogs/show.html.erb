@@ -3,7 +3,11 @@
 
       <% session[:dialog] = @dialog.id %>
 <aside id="showSpeech">
-  
+  <% @dialog.speeches.each do |s| %>
+    <p class="col-sm-10 style_<%= s.profile_id %>">
+      <%= s.message %>
+    </p>
+  <% end %>
 </aside>
 
 
@@ -12,7 +16,7 @@
 <div id="speechMessage"></div>
 <script type="text/javascript">
   $("#speechMessage").load("<%= new_speech_path() %>");
-  setInterval(function(){ $("#showSpeech").load("/dialogs-speeches"); }, 500);
+  setInterval(function(){ $("#showSpeech").append("/dialogs-speeches"); }, 500);
   
 </script>
 
