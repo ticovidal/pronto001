@@ -1,7 +1,9 @@
-  <% @mydialog.speeches.each do |s| %>
+<% if @actualspeeches - session[:lastspeeches] > 0
+  <% @recentspeeches.each do |s| %>
     <p class="col-sm-10 style_<%= s.profile_id %>">
       <%= s.message %>
       <%= @actualspeeches %>
       <%= session[:lastspeeches] %>
     </p>
   <% end %>
+<% end %>
