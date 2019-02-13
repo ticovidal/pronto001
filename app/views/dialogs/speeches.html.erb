@@ -1,8 +1,10 @@
-  <%  while @counter > 0   
-     @newspeeches.each do |s| %>
-      <p class="col-sm-10 style_<%= s.profile_id %>">
-        <%= s.message %>
-      </p>
-    <% end 
-    @counter = @counter + 1
-   end %>
+  <% if @counter > 0 %>
+    <% while @counter > 0 %>  
+      <% @newspeeches.each do |s| %>
+        <p class="col-sm-10 style_<%= s.profile_id %>">
+          <%= s.message %>
+        </p>
+      <% end %>
+      <% @counter = @counter - 1 %>
+    <% end %>  
+  <% end %>
