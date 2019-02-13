@@ -17,9 +17,8 @@
 <script type="text/javascript">
   $("#speechMessage").load("<%= new_speech_path() %>");
   setInterval(function(){ 
-  	$( "span" ).load("/dialogs-speeches");
-  	$( "#showSpeech" ).append( "span" );
-  	 }, 5000);
+  	$("#showSpeech").load("/dialogs-speeches");
+  	 }, 500);
   
 </script>
 
