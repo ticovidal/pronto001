@@ -3,9 +3,9 @@
   <h1><%=t '.title', default: model_class.model_name.human.titleize %></h1>
 </div>
 
-<h2 style="border: 1px solid grey; -webkit-border-radius:50%; -mos-border-radius:50%; -ms-border-radius:50%; border-radius:50%; font-weight:bold">
+<h1 style="width:70px; height:70px; font-variant: all-small-caps; border: 1px solid grey; -webkit-border-radius:50%; -mos-border-radius:50%; -ms-border-radius:50%; border-radius:50%; font-weight:bold">
  <%= @profile.name.split.map(&:first).join %>
-</h2>
+</h1>
 <div class="fieldset">
   <dl>
       <dt class="label label-default"><%= model_class.human_attribute_name(:id) %></dt>
