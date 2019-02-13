@@ -21,7 +21,7 @@ class DialogsController < ApplicationController
     if current_user.status == "industry"
       render layout: false
     end
-    session[:dialogsfirst] = @dialog.count
+    session[:dialogsfirst] = @dialog
     respond_to do |format|
 
         format.html
