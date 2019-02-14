@@ -1,6 +1,6 @@
   <% @recentspeeches.each do |s| %>
     <p class="style_<%= s.profile_id %>">
       <%= s.message %>
-    </p><br/>
+    </p><span style="width:100%">&nbsp;</span>
     <% session[:lastspeeches] = @actualspeeches %>
   <% end %>
