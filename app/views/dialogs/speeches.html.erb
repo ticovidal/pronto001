@@ -1,6 +1,6 @@
-  <% @recentspeeches.speeches.each do |s| %>
+  <% @recentspeeches.each do |s| %>
     <p class="col-sm-10 style_<%= s.profile_id %>">
       <%= s.message %>
-      
+
     </p>
   <% end %>
