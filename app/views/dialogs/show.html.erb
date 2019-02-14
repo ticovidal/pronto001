@@ -2,7 +2,7 @@
 <style><%= ".style_#{current_user.profile.id}" %>{float: right !important; text-align:right !important;}</style>
 
       <% session[:dialog] = @dialog.id %>
-<aside id="showSpeech" style="width:500px; overflow-y: scroll;">
+<aside id="showSpeech" style="width:500px; overflow-x: scroll;">
   <% @dialog.speeches.each do |s| %>
     <p class="col-sm-10 style_<%= s.profile_id %>">
       <%= s.message %>
