@@ -1,4 +1,4 @@
-  <% if @counter > 0 %>
+
   <% @recentspeeches.each do |s| %>
     <p class="col-sm-10 style_<%= s.profile_id %>">
       <%= s.message %>
@@ -7,4 +7,3 @@
     </p>
   <% end %>
   <% session[:lastspeeches] = @actualspeeches %>
-<% end %>
