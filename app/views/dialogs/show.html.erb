@@ -18,6 +18,8 @@
   $("#speechMessage").load("<%= new_speech_path() %>");
   setInterval(function(){ 
   	$("#showSpeech").appendHTML("/dialogs-speeches");
+  	var objDiv = document.getElementById("#showSpeech");
+     objDiv.scrollTop = objDiv.scrollHeight;
   	 }, 500);
   
 </script>
