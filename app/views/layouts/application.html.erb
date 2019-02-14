@@ -19,6 +19,29 @@
     <!-- Size should be 144 x 144 pixels -->
    
     <%= javascript_include_tag "application" %>
+    <style>
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0px grey; 
+  border-radius: 4px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black; 
+}
+</style>
    <script src="/jquery.includeHTML.min.js"></script>
   </head>
   <body>
