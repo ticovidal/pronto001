@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-<style><%= ".style_#{current_user.profile.id}" %>{float: right !important; text-align:right !important;}</style>
+<style>
+.speech{font-size:11px; padding:5px; border:1px solid black; -webkit-border-radius:5px; -moz-border-radius:5px; -ms-border-radius:5px; border-radius:5px;}
+<%= ".style_#{current_user.profile.id}" %>{float: right !important; text-align:right !important;}</style>
 
       <% session[:dialog] = @dialog.id %>
 
@@ -15,7 +17,7 @@
 
 <aside id="showSpeech" style="height:250px; overflow: hidden; display:block">
   <% @dialog.speeches.each do |s| %>
-    <p class="col-sm-10 style_<%= s.profile_id %>">
+    <p class="col-sm-10 speech style_<%= s.profile_id %>">
       <%= s.message %>
     </p>
   <% end %>
