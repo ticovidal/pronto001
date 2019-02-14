@@ -1,6 +1,6 @@
-    <%@dialog = Dialog.find(session[:dialog])%>
+    <% @dialog = Dialog.find(session[:dialog])%>
 <% @dialog.speeches.each do |s| %>
-    <p class="col-sm-10 style_<%= s.profile_id %>">
+    <p class="style_<%= s.profile_id %>">
       <%= s.message %>
     </p>
   <% end %>
