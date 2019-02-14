@@ -1,4 +1,4 @@
-<%= form_for @speech, :html => {:class => 'col-sm-9 pull-right', :style => "padding:20px 0px"}, remote: true do |form| %>
+<%= form_for @speech, :html => {:class => 'col-sm-9 pull-right', :style => "padding:20px 0px; height:100px"}, remote: true do |form| %>
   <% if speech.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(speech.errors.count, "error") %> prohibited this speech from being saved:</h2>
@@ -22,7 +22,7 @@
 
     <%= form.hidden_field :status, value: current_user.status.to_s %>
 
-    <%= form.text_area :message, id:"chatbox", class:"col-md-12", style:"border:1px solid black; overflow: auto;" %>
+    <%= form.text_area :message, id:"chatbox", class:"col-md-12", style:"border:1px solid grey; overflow: auto;" %>
   </div>
 
   <div class="actions" id="submitSpeech">
