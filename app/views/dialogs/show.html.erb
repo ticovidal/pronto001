@@ -17,7 +17,7 @@
 
 <aside id="showSpeech" style="height:250px; overflow: hidden; display:block">
   <% @dialog.speeches.each do |s| %>
-    <p class="speech style_<%= s.profile_id %>">
+    <p class="speech style_<%= s.profile_id %>"><br/>
       <%= s.message %>
     </p>
   <% end %>
