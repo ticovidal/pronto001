@@ -4,8 +4,7 @@ class DialogsController < ApplicationController
     @mydialog = Dialog.find(session[:dialog]) 
     @newspeeches = @mydialog.speeches
     @countnewspeeches = @newspeeches.count
-    @countlastspeeches = session[:lastspeeches].count
-    @counter = @countnewspeeches - @countlastspeeches
+    @counter = @countnewspeeches - session[:lastspeeches]
     @recentspeeches = @newspeeches.last(@counter)
     render layout: false
   end
