@@ -32,7 +32,7 @@
 <script>
 $('#chatbox').keypress(function (e) {
   if (e.which == 13) {
-    $('new_speech').submit( function () {
+    $('#new_speech').submit( function () {
       var formdata = $(this).serialize();
       $.ajax({
           type: "POST",
