@@ -32,14 +32,13 @@
 <script>
 $( "#chatbox" ).keypress(function( event ) {
   if ( event.which == 13 ) {
- alert('sdkjnw');
 
-     alert("<%= new_speech_path() %>");
+     alert("<%= speechs_path() %>");
      $(function () {
         $('#new_speech').bind('submit', function () {
           $.ajax({
             type: 'post',
-            url: '<%= new_speech_path() %>',
+            url: '<%= speechs_path() %>',
             data: $('#new_speech').serialize(),
             success: function () {
               alert('form was submitted');
