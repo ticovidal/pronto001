@@ -33,6 +33,7 @@
 $( "#chatbox" ).keypress(function( event ) {
   if ( event.which == 13 ) {
      alert("<%= new_speech_path() %>");
+     $("#theForm").ajaxForm({url: '%= new_speech_path() %>', type: 'post'});
   }
 });
 
