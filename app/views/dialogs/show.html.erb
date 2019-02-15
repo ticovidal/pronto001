@@ -6,7 +6,7 @@
       <% session[:dialog] = @dialog.id %>
 
 <% if current_user.status == "provider" %>
-<section class="speechMessage">
+<section class="">
 	<ul class="col-md-3 box-in">
 	  <li class="" style="list-style-type: none; border-bottm:1px solid grey;">
 		  Nome da Indústria
@@ -25,14 +25,14 @@
 </aside>
 <span></span>
 
-<div id=""></div>
+<div id="speechMessage"></div>
 <% if current_user.status == "provider" %>
     </aside>
   </section>
 <% end %>
 
 <script type="text/javascript">
-  $("#speechMessage").appendHTML("<%= new_speech_path() %>");
+  $("#chat").appendHTML("<%= new_speech_path() %>");
   	var objDiv = document.getElementById("showSpeech");
      objDiv.scrollTop = objDiv.scrollHeight;
   setInterval(function(){ 
