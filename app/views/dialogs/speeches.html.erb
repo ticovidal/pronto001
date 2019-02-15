@@ -4,4 +4,11 @@
     </h6>
     <div class="col-sm-12" style="display:block"></div>
     <% session[:lastspeeches] = @actualspeeches %>
+    <script type="text/javascript">
+
+	  	var objDiv = document.getElementById("showSpeech");
+	     objDiv.scrollTop = objDiv.scrollHeight;
+
+	  
+	</script>
   <% end %>

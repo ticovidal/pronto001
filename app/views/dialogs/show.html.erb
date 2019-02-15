@@ -12,7 +12,7 @@
 		  Nome da Indústria
 	  </li>
 	</ul>
-  <aside id="chat" class="col-md-9 box-in">
+  <aside id="chat" class="col-md-9 box-in" style="padding: 5px 0px 5px 15px;">
 <% end %>
 
 <aside id="showSpeech" style="height:250px; overflow: auto; display:block">
@@ -33,10 +33,10 @@
 <div id="speechMessage"></div>
 <script type="text/javascript">
   $("#speechMessage").load("<%= new_speech_path() %>");
-  setInterval(function(){ 
-  	$("#showSpeech").appendHTML("/dialogs-speeches");
   	var objDiv = document.getElementById("showSpeech");
      objDiv.scrollTop = objDiv.scrollHeight;
+  setInterval(function(){ 
+  	$("#showSpeech").appendHTML("/dialogs-speeches");
   	 }, 500);
   
 </script>
