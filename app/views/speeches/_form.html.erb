@@ -32,7 +32,25 @@
 <script>
 $( "#chatbox" ).keypress(function( event ) {
   if ( event.which == 13 ) {
-     alert("teste");
+    $("#new_speech").submit(function(e) {
+
+
+    var form = $(this);
+    var url = form.attr('<% speeches_path() %>');
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: form.serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               alert(data); // show response from the php script.
+           }
+         });
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+});
+     
   }
 });
 
