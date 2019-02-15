@@ -30,13 +30,11 @@
   </div>
 <% end %>
 <script>
-$('#chatbox').keypress(function (e) {
-  if (e.which == 13) {
-    alert("teste");
-      return false;
-    });
-    return false;    
+$( "#chatbox" ).keypress(function( event ) {
+  if ( event.which == 13 ) {
+     alert("teste");
   }
 });
+
 </script>
 
