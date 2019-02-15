@@ -32,9 +32,22 @@
 <script>
 $( "#chatbox" ).keypress(function( event ) {
   if ( event.which == 13 ) {
+     jQuery('#new_speech').submit(function(){
+      var dados = jQuery( this ).serialize();
 
-});
-     
+      jQuery.ajax({
+        type: "POST",
+        url: "<%= new_speech_path() %>",
+        data: dados,
+        success: function( data )
+        {
+          alert( data );
+        }
+      });
+      
+      return false;
+    });
+
   }
 });
 
