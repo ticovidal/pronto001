@@ -34,8 +34,10 @@ $( "#chatbox" ).keypress(function( event ) {
   if ( event.which == 13 ) {
 
      alert("<%= speeches_path() %>");
+
      $(function () {
-        $('#new_speech').bind('submit', function () {
+          alert("<%= speeches_path() %>");
+          
           $.ajax({
             type: 'post',
             url: '<%= speeches_path() %>',
@@ -43,9 +45,9 @@ $( "#chatbox" ).keypress(function( event ) {
             success: function () {
               alert('form was submitted');
             }
+            return false;
           });
-          return false;
-        });
+
       });
 
      
