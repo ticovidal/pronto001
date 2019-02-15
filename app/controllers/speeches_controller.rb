@@ -1,4 +1,5 @@
 class SpeechesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_speech, only: [:show, :edit, :update, :destroy]
 
   # GET /speeches
