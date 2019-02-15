@@ -22,12 +22,12 @@
 
     <%= form.hidden_field :status, value: current_user.status.to_s %>
 
-    <!--<%= form.text_area :message, id:"chatbox", class:"col-md-12", style:"border:1px solid grey; overflow: auto;" %>//-->
+    <%= form.text_area :message, id:"chatbox", class:"col-md-12", style:"border:1px solid grey; overflow: auto;" %>
   </div>
 
-  <div class="actions" id="submitSpeech">
+  <!--<div class="actions" id="submitSpeech">
     <%= form.submit %>
-  </div>
+  </div>//-->
 <% end %>
 <script>
 $( "#chatbox" ).keypress(function( event ) {
