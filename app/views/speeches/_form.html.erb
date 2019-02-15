@@ -37,7 +37,7 @@ $( "#chatbox" ).keypress(function( event ) {
 
      $(function () {
           alert("<%= speeches_path() %>");
-          
+
           $.ajax({
             type: 'post',
             url: '<%= speeches_path() %>',
@@ -45,7 +45,6 @@ $( "#chatbox" ).keypress(function( event ) {
             success: function () {
               alert('form was submitted');
             }
-            return false;
           });
 
       });
