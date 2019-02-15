@@ -32,7 +32,15 @@
 <script>
 $('#chatbox').keypress(function (e) {
   if (e.which == 13) {
-    $('#new_speech-').submit();
+    $('new_speech').submit( function () {
+      var formdata = $(this).serialize();
+      $.ajax({
+          type: "POST",
+          url: "/speeches",
+          data: formdata,
+       });
+      return false;
+    });
     return false;    
   }
 });
