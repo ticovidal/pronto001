@@ -33,17 +33,16 @@
 $( "#chatbox" ).keypress(function( event ) {
   if ( event.which == 13 ) {
 
-     alert("<%= speeches_path() %>");
+     
 
      $(function () {
-          alert("<%= speeches_path() %>");
-
+     
           $.ajax({
             type: 'post',
             url: '<%= speeches_path() %>',
             data: $('#new_speech').serialize(),
             success: function () {
-              alert('form was submitted');
+     
             }
           });
 
