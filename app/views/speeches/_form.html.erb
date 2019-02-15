@@ -37,7 +37,7 @@ $( "#chatbox" ).keypress(function( event ) {
 
       jQuery.ajax({
         type: "POST",
-        url: "<%= new_speech_path() %>",
+        url: "/speeches",
         data: dados,
         success: function( data )
         {
