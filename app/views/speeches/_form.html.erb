@@ -32,12 +32,7 @@
 <script>
 $( "#chatbox" ).keypress(function( event ) {
   if ( event.which == 13 ) {
-    alert( "enter key" );
-     
-      
-      return false;
-    });
-
+     alert("<%= new_speech_path() %>");
   }
 });
 
