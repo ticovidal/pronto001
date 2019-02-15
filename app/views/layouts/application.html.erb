@@ -96,12 +96,8 @@
               <% end %>
 
             <% else %>
-                <li><%= link_to "Atuação", "#" %></li>
-                <li><%= link_to "Vantagens", "#" %></li>
-                <li><%= link_to "Quem somos", '#' %></li>
-                <li><%= link_to "Contato", '#' %></li>
                 <li><%= link_to "Login", new_user_session_path %></li>
-                <li><%= link_to "Cadastre-se", new_user_registration_path, class:"btn btn-primary" %></li>
+                <li><%= link_to "Cadastre-se", new_user_registration_path, class:"btn btn-primary modal-btn", style: 'color:white !important' %></li>
             <% end %>
 
           </ul>
