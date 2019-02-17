@@ -74,6 +74,11 @@ h3 { text-align:center;
 	margin:auto 10%;
 	width:80%;
 }
+
+.btn-primary:hover {background:black;
+  color: black !important;
+}
+
 .btn-lateral {
   max-width:54%;
   margin:auto;
@@ -186,6 +191,9 @@ font-weight:800; font-size:18px !important;
     text-transform: uppercase;
     width:100% !important;
     }
+.modal-btn {background:black;
+  color: black !important;
+}
   .alert{position:absolute; width:100%}
 .box-in{
   border: 1px solid #aaaaaa;
