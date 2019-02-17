@@ -78,7 +78,7 @@
                 <li>&nbsp;</li>
 
                 <li>
-                  <li><button type="button" id="btnProject" class="btn btn-primary modal-btn" data-toggle="modal" data-target="#modal" style="color:white">Publicar</button></li>
+                  <li><button type="button" id="btnProject" class="btn btn-primary modal-btn" data-toggle="modal" data-target="#modal">Publicar</button></li>
                 </li>
               <% elsif current_user.status == 'provider' %>
                 <li><%= link_to "Dashboard", dashboard_provider_path %></li>
@@ -92,13 +92,13 @@
                 <li>&nbsp;</li>
                 <li>&nbsp;</li>
                 <li>
-                  <%= link_to "Buscar Projeto", projects_path, style: 'color:white !important', class: 'btn btn-primary modal-btn' %>
+                  <%= link_to "Buscar Projeto", projects_path, class: 'btn btn-primary modal-btn' %>
                 </li>
               <% end %>
 
             <% else %>
                 <li><%= link_to "Login", new_user_session_path %></li>
-                <li><%= link_to "Cadastre-se", new_user_registration_path, class:"btn btn-primary modal-btn", style: 'color:white !important' %></li>
+                <li><%= link_to "Cadastre-se", new_user_registration_path, class:"btn btn-primary modal-btn" %></li>
             <% end %>
 
           </ul>
