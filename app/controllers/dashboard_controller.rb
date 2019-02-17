@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
   	@projectsend1 = Project.where(industry_id:current_user.profile.profileable_id).where(visibility:false).count
   	@projectsend2 = Project.where(industry_id:current_user.profile.profileable_id).where(visibility:true).count
   	@projectsend3 = Project.where(industry_id:current_user.profile.profileable_id).first
+    @activeprojects = Project.where(industry_id:current_user.profile.profileable_id).where(status: "approved")
 
   		
   end
@@ -17,6 +18,6 @@ class DashboardController < ApplicationController
   	@projectsend2 = Project.where(proposes:current_user.profile.profileable_id).where(visibility:true).count
   	@projectsend3 = Project.where(proposes:current_user.profile.profileable_id).first
     @proposes = Propose.where(provider_id: current_user.profile.profileable_id)
-    @acceptedproposes = Propose.where(provider_id: current_user.profile.profileable_id).where(provider_id: "approved")
+    @acceptedproposes = Propose.where(provider_id: current_user.profile.profileable_id).where(status: "approved")
   end
 end
