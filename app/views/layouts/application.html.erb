@@ -69,6 +69,7 @@
                 <li><%= link_to "Dashboard", dashboard_industry_path %></li>
                 <% if current_user.profile %>
                   <li><%= link_to "Perfil", profiles_path + "/" + current_user.profile.id.to_s %></li>
+                  <li><%= link_to "Projetos", projects_path %></li>
                 <% end %>
                 <li>&nbsp;</li>
                 <li>&nbsp;</li>
@@ -84,6 +85,7 @@
                 <li><%= link_to "Dashboard", dashboard_provider_path %></li>
                 <% if current_user.profile %>
                   <li><%= link_to "Perfil", profiles_path + "/" + current_user.profile.id.to_s %></li>
+                  <li><%= link_to "Projetos", projects_path %></li>
                 <% end %>
                 <li>&nbsp;</li>
                 <li>&nbsp;</li>
