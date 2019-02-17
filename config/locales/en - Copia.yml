@@ -31,20 +31,3 @@
 
 en:
   hello: "Hello world"
-  name: "nome"
-  email: "e-mail"
-  phone: "telefone"
-  cellphone: "celular"
-  street: "Rua/Av"
-  number: "nº"
-  compl: "Compl."
-  neighborhood: "Bairro"
-  city: "Cidade"
-  state: "Estado"
-  country: "País"
-  zip: "CEP"
-  company: "Empresa"
-  category: "Categoria"
-  social: "Razão Social"
-  cnpj: "CNPJ"
-

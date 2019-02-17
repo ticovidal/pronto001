@@ -8,21 +8,21 @@
 
 <%= f.fields_for :enterprise do |enterprise_fields| %>
      <div class="form-group">
-    <%= enterprise_fields.label :company, class: 'control-label' %>
+    <%= enterprise_fields.label t('company'), class: 'control-label' %>
     <div class="col-md-12">
     <%= enterprise_fields.text_field :company, class: 'text_field form-control' %>
   </div>
   </div>
 
   <div class="form-group">
-    <%= enterprise_fields.label :social, class: 'control-label' %>
+    <%= enterprise_fields.label t('social'), class: 'control-label' %>
     <div class="col-md-12">
       <%= enterprise_fields.text_field :social, class: 'text_field form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= enterprise_fields.label :cnpj, class: 'control-label' %>
+    <%= enterprise_fields.label t('cnpj'), class: 'control-label' %>
     <div class="col-md-12">
     <%= enterprise_fields.text_field :cnpj, class: 'text_field form-control' %>
   </div>
@@ -63,7 +63,7 @@
   </section>
   <div class="form-group">
     <div class='col-md-offset-3 col-md-6'>
-      <%= f.submit nil, class: 'btn btn-primary' %>
+      <%= f.submit "Cadastrar", class: 'btn btn-primary' %>
     </div>
   </div>
   <% end %>

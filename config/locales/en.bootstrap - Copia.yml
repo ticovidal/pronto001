@@ -17,7 +17,3 @@ en:
       save: "Save"
       new: "New"
       delete: "Delete"
-  name: "Nome"
-  email: "email"
-  phone: "Telefone"
-  cellphone: "Celular" 

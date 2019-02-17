@@ -5,7 +5,7 @@
 <h3 class="headlogin">Dados do endereço</h3>
 <% end %>
   <div class="form-group col-md-8">
-    <%= f.label :street, class: 'control-label' %>
+    <%= f.label t('street'), class: 'control-label' %>
     <div class="col-md-12">
       <%= f.text_field :street, class: 'text_field form-control' %>
     </div>
@@ -14,19 +14,19 @@
 
   
   <div class="form-group col-md-2">
-    <%= f.label :number, class: 'control-label' %>
+    <%= f.label t('number'), class: 'control-label' %>
     <div class="col-md-12">
       <%= f.text_field :number, class: 'text_field form-control' %>
     </div>
   </div>
   <div class="form-group col-md-3">
-    <%= f.label :compl, class: 'control-label' %>
+    <%= f.label t('compl'), class: 'control-label' %>
     <div class="col-md-12">
       <%= f.text_field :compl, class: 'text_field form-control' %>
     </div>
   </div>
   <div class="form-group col-md-6">
-    <%= f.label :neighborhood, class: 'control-label' %>
+    <%= f.label t('neighborhood'), class: 'control-label' %>
     <div class="col-md-12">
       <%= f.text_field :neighborhood, class: 'text_field form-control' %>
     </div>
@@ -38,25 +38,25 @@
 
 
   <div class="form-group col-md-6">
-    <%= f.label :city, class: 'control-label' %>
+    <%= f.label t('city'), class: 'control-label' %>
     <div class="col-md-12">
       <%= f.text_field :city, class: 'text_field form-control' %>
     </div>
   </div>
   <div class="form-group col-md-5">
-    <%= f.label :state, class: 'control-label' %>
+    <%= f.label t('state'), class: 'control-label' %>
     <div class="col-md-12">
       <%= f.text_field :state, class: 'text_field form-control' %>
     </div>
   </div>
   <div class="form-group col-md-4">
-    <%= f.label :country, class: 'control-label' %>
+    <%= f.label t('country'), class: 'control-label' %>
     <div class="col-md-12">
       <%= f.text_field :country, class: 'text_field form-control' %>
     </div>
   </div>
   <div class="form-group col-md-4">
-    <%= f.label :zip, class: 'control-label' %>
+    <%= f.label t('zip'), class: 'control-label' %>
     <div class="col-md-12">
       <%= f.text_field :zip, class: 'text_field form-control' %>
     </div>
@@ -69,7 +69,7 @@
 
   <div class="form-group">
     <div class='col-md-offset-3 col-md-6'>
-      <%= f.submit nil, class: 'btn btn-primary' %>
+      <%= f.submit "Avançar", class: 'btn btn-primary' %>
      
     </div>
   </div>
